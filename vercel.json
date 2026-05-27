@@ -1,0 +1,13 @@
+{
+  "git": {
+    "deploymentEnabled": {
+      "main": false
+    }
+  },
+  "redirects": [
+    { "source": "/vietnam-itinerary", "destination": "/#/vietnam-itinerary", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
