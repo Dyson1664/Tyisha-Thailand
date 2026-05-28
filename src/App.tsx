@@ -9,7 +9,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import FAQs from "./pages/FAQs";
 import TermsConditions from "./pages/TermsConditions";
-import VietnamItinerary from "./pages/VietnamItinerary";
+import PhilippinesItinerary from "./pages/PhilippinesItinerary";
 
 import BookingPage from "./pages/booking/BookingPage";
 import NotFound from "./pages/NotFound";
@@ -28,8 +28,8 @@ const App = () => (
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/terms" element={<TermsConditions />} />
 
-          <Route path="/" element={<VietnamItinerary />} />
-          <Route path="/vietnam-itinerary" element={<VietnamItinerary />} />
+          <Route path="/" element={<PhilippinesItinerary />} />
+          <Route path="/philippines-itinerary" element={<PhilippinesItinerary />} />
           <Route path="/booking/:slug" element={<BookingPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

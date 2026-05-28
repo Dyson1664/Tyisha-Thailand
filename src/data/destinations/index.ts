@@ -1,27 +1,27 @@
-import vietnamHeroImage from "@/assets/vn/vietnam-hero.webp";
+import philippinesHeroImage from "@/assets/PH East/desktop_turtle.jpg";
 
-import { vietnamData } from "@/data/countries/vietnam";
+import { philippinesData } from "@/data/countries/philippines";
 import { DestinationData, ItineraryData } from "@/data/types";
 
 export type { Trip, DestinationData, ItineraryData } from "@/data/types";
 
 export const destinationsData: Record<string, DestinationData> = {
   vietnam: {
-    country: "Vietnam",
-    heroImage: vietnamHeroImage,
-    heroSubtitle: "Explore Hanoi, Ha Long Bay, and lantern-lit Hoi An on an 8-day escape",
+    country: "Philippines",
+    heroImage: philippinesHeroImage,
+    heroSubtitle: "8 Days | Cebu → Moalboal → Boracay",
     trips: [
       {
         id: "vietnam-emerald-escape",
         slug: "vietnam",
-        title: "Best of Vietnam",
-        duration: "8 days",
-        description: "Journey through Hanoi, Ha Long Bay, and Hoi An with culture, scenery, food, and nightlife",
-        image: vietnamHeroImage,
+        title: "Philippines Island Explorer Itinerary",
+        duration: "8 Days",
+        description: "8 Days | Cebu → Moalboal → Boracay",
+        image: philippinesHeroImage,
         price: "$1,795",
-        route: "/vietnam-itinerary"
+        route: "/philippines-itinerary"
       }
     ],
-    itinerary: vietnamData
+    itinerary: philippinesData
   }
 };

@@ -71,6 +71,8 @@ interface TripHighlight {
   description?: string;
   image?: string;
   video?: string;
+  videoAspectRatio?: string;
+  videoObjectPosition?: string;
 }
 
 interface AccommodationHighlight {
@@ -346,13 +348,14 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
                     {highlight.video ? (
                       <div
                         className="relative w-full max-w-md mx-auto rounded-2xl shadow-md overflow-hidden bg-black"
-                        style={{ aspectRatio: "5 / 8" }}
+                        style={{ aspectRatio: highlight.videoAspectRatio || "5 / 8" }}
                       >
                         <video
                           ref={(el) => (desktopVideoRefs.current[index] = el)}
                           src={highlight.video}
                           poster={highlight.image}
                           className="w-full h-full object-cover"
+                          style={{ objectPosition: highlight.videoObjectPosition }}
                           controls={isPlaying}
                           playsInline
                         />
@@ -417,13 +420,14 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
                     {highlight.video ? (
                       <div
                         className="relative w-full rounded-2xl overflow-hidden shadow-md bg-black"
-                        style={{ aspectRatio: "5 / 8" }}
+                        style={{ aspectRatio: highlight.videoAspectRatio || "5 / 8" }}
                       >
                         <video
                           ref={(el) => (mobileVideoRefs.current[index] = el)}
                           src={highlight.video}
                           poster={highlight.image}
                           className="w-full h-full object-cover"
+                          style={{ objectPosition: highlight.videoObjectPosition }}
                           controls={isPlaying}
                           playsInline
                         />
@@ -1027,18 +1031,39 @@ const IncludedSection = memo(
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24 gap-y-12 max-w-7xl mx-auto">
-          {included.map((section, index) => (
-            <div key={index} className="space-y-5">
-              <h4 className="font-semibold text-foreground text-lg mb-5">{section.title}</h4>
-              <ul className="space-y-2 text-muted-foreground list-disc list-inside marker:text-primary">
-                {section.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="leading-relaxed">
-                    {item.text}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="space-y-12">
+            {included
+              .filter((section) => section.title !== "Meals Included" && section.title !== "Transport & Local Guide")
+              .map((section, index) => (
+                <div key={index} className="space-y-5">
+                  <h4 className="font-semibold text-foreground text-lg mb-5">{section.title}</h4>
+                  <ul className="space-y-2 text-muted-foreground list-disc list-inside marker:text-primary">
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="leading-relaxed">
+                        {item.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
+
+          <div className="space-y-8">
+            {included
+              .filter((section) => section.title === "Meals Included" || section.title === "Transport & Local Guide")
+              .map((section, index) => (
+                <div key={index} className="space-y-5">
+                  <h4 className="font-semibold text-foreground text-lg mb-5">{section.title}</h4>
+                  <ul className="space-y-2 text-muted-foreground list-disc list-inside marker:text-primary">
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex} className="leading-relaxed">
+                        {item.text}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
     </div>
@@ -1586,9 +1611,6 @@ export const ItineraryTemplate = memo(
                 </div>
                 {itineraryContent}
               </div>
-
-              {/* Where We Stay Section */}
-              <WhereWeStay data={data} />
 
               {/* What's Included Section */}
               <IncludedSection included={data.included} countryName={countryName} />

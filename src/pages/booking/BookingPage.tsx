@@ -54,7 +54,7 @@ const BOOKING_CONFIG: Record<
   }
 > = {
   vietnam: {
-    countryName: "Vietnam",
+    countryName: "Philippines",
     productHandle: "vietnam-deposit",
     variantId: "45526423830707",
     requiresPassport: false,
@@ -222,7 +222,7 @@ export default function BookingPage2() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Only support Vietnam.
+  // Only support this trip slug.
   const config = slug ? BOOKING_CONFIG[slug] : undefined;
 
   const schema = useMemo(() => {

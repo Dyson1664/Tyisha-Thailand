@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { CalendarIcon, Clock, MapPin } from "lucide-react";
 import { ItineraryTemplate } from "@/components/ItineraryTemplate";
-import { vietnamData } from "@/data/countries/vietnam";
+import { philippinesData } from "@/data/countries/philippines";
 
-const VietnamDesktopHero = () => {
-  const bookingUrl = vietnamData.slug ? `/#/booking/${vietnamData.slug}` : "#";
+const PhilippinesDesktopHero = () => {
+  const bookingUrl = philippinesData.slug ? `/#/booking/${philippinesData.slug}` : "#";
 
   return (
     <section className="hidden w-full px-5 py-5 md:block">
@@ -12,12 +12,12 @@ const VietnamDesktopHero = () => {
         <div className="mb-3 flex items-start justify-between gap-4">
           <div>
             <h1 className="font-playfair text-3xl font-semibold leading-none text-[#0fc2bf] lg:text-4xl">
-              {vietnamData.title}
+              {philippinesData.title}
             </h1>
 
-            {vietnamData.tags.length > 0 && (
+            {philippinesData.tags.length > 0 && (
               <div className="mt-3 flex flex-wrap items-center gap-2">
-                {vietnamData.tags.map(({ icon: Icon, emoji, label }) => (
+                {philippinesData.tags.map(({ icon: Icon, emoji, label }) => (
                   <span
                     key={label}
                     className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold text-primary lg:text-sm"
@@ -36,15 +36,15 @@ const VietnamDesktopHero = () => {
             <div className="mt-2 flex flex-wrap items-center gap-4 text-lg font-semibold text-slate-800 lg:text-xl">
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
-                <span className="font-playfair">{vietnamData.route.join(" - ")}</span>
+                <span className="font-playfair">{philippinesData.route.join(" → ")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
-                <span className="font-playfair">{vietnamData.duration}</span>
+                <span className="font-playfair">{philippinesData.duration}</span>
               </div>
               <div className="flex items-center gap-2">
                 <CalendarIcon className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
-                <span className="font-playfair">Vietnam</span>
+                <span className="font-playfair">Philippines</span>
               </div>
             </div>
           </div>
@@ -52,22 +52,22 @@ const VietnamDesktopHero = () => {
           <div className="min-w-[220px] pt-1 text-right">
             <p className="text-lg text-slate-700">
               From{" "}
-              {vietnamData.priceOriginal && (
+              {philippinesData.priceOriginal && (
                 <span className="mr-2 text-lg font-semibold text-slate-500 line-through">
-                  {vietnamData.priceOriginal}
+                  {philippinesData.priceOriginal}
                 </span>
               )}
-              <span className="text-3xl font-extrabold text-slate-900 lg:text-4xl">{vietnamData.price}</span>
+              <span className="text-3xl font-extrabold text-slate-900 lg:text-4xl">{philippinesData.price}</span>
             </p>
-            {vietnamData.priceNote && (
-              <p className="text-xs font-semibold text-slate-600">{vietnamData.priceNote}</p>
+            {philippinesData.priceNote && (
+              <p className="text-xs font-semibold text-slate-600">{philippinesData.priceNote}</p>
             )}
             <a href={bookingUrl} className="inline-flex">
               <button
                 type="button"
                 className="mt-2 rounded-full bg-[#0fc2bf] px-5 py-2 text-base font-bold text-white transition hover:brightness-95"
               >
-                {vietnamData.ctaLabel}
+                {philippinesData.ctaLabel}
               </button>
             </a>
           </div>
@@ -78,8 +78,8 @@ const VietnamDesktopHero = () => {
         <div className="grid h-[460px] grid-cols-12 grid-rows-2 gap-1 bg-white lg:h-[500px] xl:h-[530px]">
           <video
             className="col-span-3 row-span-2 h-full w-full object-cover"
-            src={vietnamData.desktopHeroVideo}
-            poster={vietnamData.desktopHeroPosterImage}
+            src={philippinesData.desktopHeroVideo}
+            poster={philippinesData.desktopHeroPosterImage}
             autoPlay
             muted
             loop
@@ -87,30 +87,32 @@ const VietnamDesktopHero = () => {
             preload="metadata"
           />
           <img
-            src={vietnamData.desktopTopMiddleImage}
-            alt="Ha Long Bay in Vietnam"
+            src={philippinesData.desktopTopMiddleImage}
+            alt="Boracay beach in the Philippines"
             className="col-span-5 h-full w-full object-cover"
+            style={{ objectPosition: philippinesData.desktopTopMiddleObjectPosition }}
           />
           <img
-            src={vietnamData.desktopTopRightImage}
-            alt="Lanterns in Hoi An"
+            src={philippinesData.desktopTopRightImage}
+            alt="Tropical water in the Philippines"
             className="col-span-4 h-full w-full object-cover"
+            style={{ objectPosition: philippinesData.desktopTopRightObjectPosition }}
           />
           <img
-            src={vietnamData.desktopBottomLeftImage}
-            alt="Hoi An lantern street"
+            src={philippinesData.desktopBottomLeftImage}
+            alt="Boracay shoreline"
             className="col-span-3 h-full w-full object-cover"
           />
           <img
-            src={vietnamData.desktopBottomMiddleImage}
-            alt="Cycling through Vietnam countryside"
+            src={philippinesData.desktopBottomMiddleImage}
+            alt="Philippines island view"
             className="col-span-3 h-full w-full object-cover"
           />
           <img
-            src={vietnamData.desktopBottomRightImage}
-            alt="Basket boat ride in Vietnam"
+            src={philippinesData.desktopBottomRightImage}
+            alt="Canyoneering waterfall in Cebu"
             className="col-span-3 h-full w-full object-cover"
-            style={{ objectPosition: vietnamData.desktopBottomRightObjectPosition }}
+            style={{ objectPosition: philippinesData.desktopBottomRightObjectPosition }}
           />
         </div>
       </div>
@@ -118,18 +120,18 @@ const VietnamDesktopHero = () => {
   );
 };
 
-const VietnamItinerary = () => {
+const PhilippinesItinerary = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
 
   return (
     <ItineraryTemplate
-      data={vietnamData}
+      data={philippinesData}
       hideDesktopHero
-      desktopHero={<VietnamDesktopHero />}
+      desktopHero={<PhilippinesDesktopHero />}
     />
   );
 };
 
-export default VietnamItinerary;
+export default PhilippinesItinerary;
