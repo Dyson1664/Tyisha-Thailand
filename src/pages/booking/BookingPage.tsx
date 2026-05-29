@@ -13,13 +13,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
   Form,
   FormControl,
   FormField,
@@ -104,7 +97,6 @@ const baseSchema = z.object({
   mobile: z.string().trim().min(1, "Mobile number is required").max(30),
   instagram: z.string().trim().max(50).optional().or(z.literal("")),
   guestCount: z.coerce.number().int().min(1, "Minimum 1 guest").max(10),
-  roomType: z.enum(["standard_twin", "single_upgrade"]),
   termsAccepted: z.literal(true, {
     errorMap: () => ({ message: "You must accept the terms and conditions" }),
   }),
@@ -238,7 +230,6 @@ export default function BookingPage2() {
       mobile: "",
       instagram: "",
       guestCount: 1,
-      roomType: "standard_twin",
       termsAccepted: undefined,
 
       passportFirstNameGivenName: "",
@@ -252,7 +243,6 @@ export default function BookingPage2() {
   });
 
   const { isValid } = form.formState;
-  const selectedRoomType = form.watch("roomType");
   if (!config) {
     return (
       <div className="min-h-screen bg-background">
@@ -291,10 +281,6 @@ export default function BookingPage2() {
       Mobile: data.mobile,
       Instagram: data.instagram?.trim() ? data.instagram.trim() : "Not provided",
       "Number of Guests": String(data.guestCount ?? 1),
-      "Room Type":
-        data.roomType === "single_upgrade"
-          ? "Single Room Upgrade (+$395 USD)"
-          : "Standard Twin Room (no extra charge)",
       "Terms Accepted": "Yes",
     };
 
@@ -367,8 +353,7 @@ export default function BookingPage2() {
                   <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
                     Secure your spot with a $500 deposit, then complete your
                     remaining balance in 2 installments: a first balance payment
-                    of $600 USD in September, then the final balance payment in
-                    January.
+                    in October, then the final balance payment in February.
                   </p>
                 </div>
 
@@ -467,39 +452,6 @@ export default function BookingPage2() {
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="roomType"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Room Type</FormLabel>
-                      <FormControl>
-                        <Select
-                          value={field.value}
-                          onValueChange={field.onChange}
-                        >
-                          <SelectTrigger className="h-11">
-                            <SelectValue placeholder="Select a room type" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="standard_twin">
-                              Standard twin room (no extra charge)
-                            </SelectItem>
-                            <SelectItem value="single_upgrade">
-                              Single room upgrade (+$395 USD)
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
-                      {selectedRoomType === "single_upgrade" && (
-                        <div className="mt-2 rounded-md border border-primary/20 bg-primary/5 px-3 py-2 text-xs text-foreground">
-                          We won’t charge for room upgrades now. We’ll follow up
-                          by email with the upgrade payment link.
-                        </div>
-                      )}
-                    </FormItem>
-                  )}
-                />
 
                 {config.requiresPassport && (
                   <div className="pt-4 border-t border-border">

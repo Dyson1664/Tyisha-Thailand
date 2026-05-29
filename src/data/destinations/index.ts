@@ -14,11 +14,11 @@ export const destinationsData: Record<string, DestinationData> = {
       {
         id: "vietnam-emerald-escape",
         slug: "vietnam",
-        title: "Philippines Island Explorer Itinerary",
+        title: "Philippines Island Explorer",
         duration: "8 Days",
         description: "8 Days | Cebu → Moalboal → Boracay",
         image: philippinesHeroImage,
-        price: "$1,795",
+        price: "$2,495",
         route: "/philippines-itinerary"
       }
     ],

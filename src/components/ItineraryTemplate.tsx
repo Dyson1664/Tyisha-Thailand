@@ -91,6 +91,8 @@ interface CountryData {
   location: string;
   duration: string;
   heroImage: string;
+  desktopHeroVideo?: string;
+  desktopHeroPosterImage?: string;
   price?: string;
   priceOriginal?: string;
   priceNote?: string;
@@ -1290,6 +1292,8 @@ const StickyBookingCard = memo(({ data }: { data: CountryData }) => {
 
 export const ItineraryTemplate = memo(
   ({ data, logoStyle, FooterComponent, desktopHero, hideDesktopHero }: ItineraryTemplateProps) => {
+    const [mobileHeroVideoReady, setMobileHeroVideoReady] = useState(false);
+
     // Memoize derived values
     const countryName = useMemo(() => {
       // Special case for Sri Lanka to keep both words
@@ -1298,6 +1302,10 @@ export const ItineraryTemplate = memo(
       }
       return data.title.split(" ")[0];
     }, [data.title]);
+
+    useEffect(() => {
+      setMobileHeroVideoReady(false);
+    }, [data.desktopHeroVideo]);
 
     // Compute 4 images for hero left grid (prefer overviewGallery)
     const overviewFour = useMemo(() => {
@@ -1432,11 +1440,28 @@ export const ItineraryTemplate = memo(
             <img
               src={data.heroImage}
               alt={`${data.title} hero`}
-              className="absolute inset-0 h-full w-full object-cover"
+              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                mobileHeroVideoReady ? "opacity-0" : "opacity-100"
+              }`}
               loading="eager"
               fetchpriority="high"
               decoding="async"
             />
+            {data.desktopHeroVideo && (
+              <video
+                className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-500 ${
+                  mobileHeroVideoReady ? "opacity-100" : "opacity-0"
+                }`}
+                src={data.desktopHeroVideo}
+                poster={data.heroImage}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                onCanPlay={() => setMobileHeroVideoReady(true)}
+              />
+            )}
             {/* Tour Start Date Badge - Mobile Only */}
             {(data.slug === "india-journey" ||
               data.slug === "sri-lanka" ||

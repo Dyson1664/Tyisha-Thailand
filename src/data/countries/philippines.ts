@@ -6,7 +6,7 @@ import phBoracaySunset from "@/assets/PH East/boracay_sunset.jpg";
 import phBoracayVideo from "@/assets/PH East/Boracay_video.mp4";
 import phCebu from "@/assets/PH East/cebu.jpg";
 import phCanyon2 from "@/assets/PH East/canyon_2.jpg";
-import phCanyoneering from "@/assets/PH East/canyoneering.jpg";
+import phCanyoneering from "@/assets/PH East/mb_canyon.avif";
 import phDay2Church from "@/assets/PH East/day2_church.jpg";
 import phDesktop2 from "@/assets/PH East/desktop_2.jpg";
 import phDesktopTurtle from "@/assets/PH East/desktop_turtle.jpg";
@@ -19,13 +19,11 @@ import { Home, Zap, Plane, Users, UtensilsCrossed } from "lucide-react";
 export const philippinesData = {
   id: "vietnam-emerald-escape",
   slug: "vietnam",
-  title: "Philippines Island Explorer Itinerary",
+  title: "Philippines Island Explorer",
   subtitle: "8 Days | Cebu → Moalboal → Boracay",
   location: "Philippines",
   duration: "8 Days",
-  price: "$1,795",
-  priceOriginal: "$1,895",
-  priceNote: "First 6 people save $100 USD",
+  price: "$2,495",
   ctaLabel: "Reserve Now $500",
   heroImage: phDesktopTurtle,
   desktopHeroVideo: phMoalboalVideo,
@@ -48,7 +46,7 @@ export const philippinesData = {
   ],
   aboutDescription: [
     "Get ready for tropical chaos in the best possible way. Think turquoise water, white-sand beaches, waterfalls, snorkelling with turtles, sunset sailing, boat parties, local food, and a group of new travel mates who will very quickly feel like family.",
-    "This is the Philippines the Imagine Beyond way: big laughs, bucket-list moments, local experiences, and plenty of time to soak up island life.",
+    "Hosted by Noah, aka The Black Culdron, this trip brings the online magic into real life: island adventures, spirituality, folklore, culture, manifestation moments, big laughs, and plenty of time to soak up the Philippines.",
   ],
   aboutImages: [phCebu, phBoracay1],
   highlights: [
@@ -150,7 +148,7 @@ export const philippinesData = {
       location: "Moalboal",
       heroImage: phTurtle,
       description:
-        "Wake up, grab breakfast, and get ready for one of the most magical days of the trip. Today we head into the water for an unforgettable snorkelling experience. Moalboal is famous for its marine life, and you will get the chance to swim among colourful corals, tropical fish, the iconic sardine run, and, if we are lucky, turtles gliding through the ocean like absolute legends. There is something pretty special about seeing turtles in their natural habitat. Do not be surprised if someone quietly sheds a happy tear into their snorkel mask. In the evening, we will head out to experience Moalboal’s nightlife. Expect beach bars, good vibes, and at least one person recreating the sardine run on the dance floor.",
+        "Wake up, grab breakfast, and get ready for one of the most magical days of the trip. Today we head into the water for an unforgettable snorkelling experience. Moalboal is famous for its marine life, and you will get the chance to swim among colourful corals, tropical fish, the iconic sardine run, and, if we are lucky, turtles gliding through the ocean like absolute legends. There is something pretty special about seeing turtles in their natural habitat. Do not be surprised if someone quietly sheds a happy tear into their snorkel mask. Later, Noah will host a short Art of Having Everything session, introducing scripting, manifestation, and a grounding guided meditation. In the evening, we will head out to experience Moalboal’s nightlife. Expect beach bars, good vibes, and at least one person recreating the sardine run on the dance floor.",
       meals: "1 breakfast",
       highlights: "Snorkelling with turtles, sardine run",
       accommodation: { name: "Quo Vadis Dive Resort or similar" },
@@ -175,7 +173,7 @@ export const philippinesData = {
         "Paradise is calling. Today, we travel back to Cebu Airport and catch a short flight to Caticlan, the gateway to Boracay. From there, we hop over to the island and check into our resort, our home for the next three nights. Boracay is famous for powdery white sand, bright blue water, beach clubs, sunsets, and a nightlife scene that does not mess around. Once we are settled in, we will head out to watch the sunset. Depending on the group vibe, we might grab a few drinks on the beach or join a sunset cruise. After that, it is time for a group dinner and a night out for anyone ready to experience Boracay after dark. Want to chill instead? Completely fair. Massage, shower, early night, and no one needs to know.",
       meals: "1 breakfast",
       highlights: "Flight to Caticlan, ferry to Boracay",
-      accommodation: { name: "Henann Regency Resort and Spa or similar" },
+      accommodation: { name: "Commander Suites or similar" },
     },
     {
       day: 6,
@@ -183,10 +181,10 @@ export const philippinesData = {
       location: "Boracay",
       heroImage: phParawSailing,
       description:
-        "This morning is yours. Sleep in, wander the beach, find a cute café, hit the shops, swim, sunbathe, or spend quality time recovering from last night’s questionable life choices. In the late afternoon, we meet back up for one of Boracay’s most beautiful experiences: Paraw sailing. A paraw is a traditional Filipino sailboat with two outriggers and two sails. We will glide across the water as the sun begins to set, with Boracay’s famous colours lighting up the sky. Golden orange, pink, purple, lilac — the whole thing looks like someone turned the saturation up in real life. After sailing, we will head back, freshen up, and check out some of the best cocktail spots in town. Mojitos at sunset? Yes, please.",
+        "This morning is yours. Sleep in, wander the beach, find a cute café, hit the shops, swim, sunbathe, or spend quality time recovering from last night’s questionable life choices. We will also make space for a relaxed Noah-led manifestation and meditation workshop, using scripting to get clear on what you want and reset before the final stretch of the trip. In the late afternoon, we meet back up for one of Boracay’s most beautiful experiences: Paraw sailing. A paraw is a traditional Filipino sailboat with two outriggers and two sails. We will glide across the water as the sun begins to set, with Boracay’s famous colours lighting up the sky. Golden orange, pink, purple, lilac — the whole thing looks like someone turned the saturation up in real life. After sailing, we will head back, freshen up, and check out some of the best cocktail spots in town. Mojitos at sunset? Yes, please.",
       meals: "1 breakfast",
-      highlights: "Paraw sailing",
-      accommodation: { name: "Henann Regency Resort and Spa or similar" },
+      highlights: "Paraw sailing, guided manifestation and meditation session",
+      accommodation: { name: "Commander Suites or similar" },
     },
     {
       day: 7,
@@ -197,7 +195,7 @@ export const philippinesData = {
         "It is our last full day together, so obviously we are going out with a bang. Today is boat party day. We will spend the day island hopping, snorkelling in crystal-clear water, floating around, soaking up the sun, and making the most of every final moment in paradise. Expect music, drinks, swimming, lunch, and all the “how is this real life?” energy. Later, we head back to shore and get ready for our farewell dinner. This is the final night with your Imagine Beyond crew, so dress up, order dessert, make a toast, and celebrate an unforgettable week in the Philippines. The goodbye might hurt, but the memories will be worth it.",
       meals: "1 breakfast",
       highlights: "Island hopping boat party",
-      accommodation: { name: "Henann Regency Resort and Spa or similar" },
+      accommodation: { name: "Commander Suites or similar" },
     },
     {
       day: 8,
@@ -223,6 +221,7 @@ export const philippinesData = {
         { text: "Moalboal walking tour" },
         { text: "Simala Church" },
         { text: "Snorkelling with sardines and turtles" },
+        { text: "Guided manifestation and meditation session" },
         { text: "Canyoneering" },
         { text: "Waterfalls" },
         { text: "Boracay sunset experience" },

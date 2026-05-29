@@ -16,7 +16,7 @@ export interface NavigationDestination {
 
 // Extract trips data to module level - prevents recreation on every render
 export const NAVIGATION_TRIPS: readonly NavigationTrip[] = [
-  { title: "Philippines Island Explorer Itinerary", duration: "8 Days", location: "Philippines", link: "/philippines-itinerary" },
+  { title: "Philippines Island Explorer", duration: "8 Days", location: "Philippines", link: "/philippines-itinerary" },
 ] as const;
 
 // Extract destinations data to module level
