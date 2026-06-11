@@ -28,15 +28,20 @@ const BookNowButton = memo(({ tripSlug }: { tripSlug?: string }) => {
   const bookingUrl = getBookingUrlBySlug(tripSlug);
 
   return (
-    <a href={bookingUrl} className="inline-block">
-      <Button
-        size="lg"
-        className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold"
-        disabled={!tripSlug}
-      >
-        Book Now
-      </Button>
-    </a>
+    <div className="inline-flex flex-col items-center gap-2">
+      <a href={bookingUrl} className="inline-block">
+        <Button
+          size="lg"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-4 text-lg font-semibold"
+          disabled={!tripSlug}
+        >
+          Book Now
+        </Button>
+      </a>
+      <p className="text-xs text-muted-foreground">
+        Deposit is non-refundable.
+      </p>
+    </div>
   );
 });
 
@@ -1272,14 +1277,19 @@ const StickyBookingCard = memo(({ data }: { data: CountryData }) => {
               </span>
             </Button>
           ) : (
-            <a href={bookingUrl} className="block">
-              <Button
-                size="default"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl text-base font-semibold"
-              >
-                {data.ctaLabel || "RESERVE NOW $650"}
-              </Button>
-            </a>
+            <>
+              <a href={bookingUrl} className="block">
+                <Button
+                  size="default"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl text-base font-semibold"
+                >
+                  {data.ctaLabel || "RESERVE NOW $650"}
+                </Button>
+              </a>
+              <p className="mt-2 text-center text-xs text-muted-foreground">
+                Deposit is non-refundable.
+              </p>
+            </>
           )}
 
 
@@ -1462,20 +1472,6 @@ export const ItineraryTemplate = memo(
                 onCanPlay={() => setMobileHeroVideoReady(true)}
               />
             )}
-            {/* Tour Start Date Badge - Mobile Only */}
-            {(data.slug === "india-journey" ||
-              data.slug === "sri-lanka" ||
-              data.slug === "philippines") && (
-              <div className="absolute top-4 right-4 z-10">
-                <div className="bg-primary backdrop-blur-md border border-primary rounded-lg px-3 py-2 shadow-lg">
-                  <p className="text-sm font-semibold text-white whitespace-nowrap">
-                    {data.slug === "india-journey" && "Tour starts Feb 27th"}
-                    {data.slug === "sri-lanka" && "Tour starts April 19th"}
-                    {data.slug === "philippines" && "Tour starts May 4th"}
-                  </p>
-                </div>
-              </div>
-            )}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
               <div className="text-center text-white">
                 <h1 className="text-3xl font-bold mb-2">{data.title}</h1>
@@ -1484,6 +1480,7 @@ export const ItineraryTemplate = memo(
                   <span>
                     {data.slug === "india-journey" ? "Feb 27th" : data.location} •{" "}
                     {data.duration}
+                    {data.startDate ? ` - ${data.startDate}` : ""}
                   </span>
                 </div>
               </div>
@@ -1507,7 +1504,7 @@ export const ItineraryTemplate = memo(
                     <p className="text-sm font-semibold text-white">
                       {data.slug === "india-journey" && "Tour starts Feb 27th"}
                       {data.slug === "sri-lanka" && "Tour starts April 19th"}
-                      {data.slug === "philippines" && "Tour starts May 4th"}
+                      {data.slug === "philippines" && "Tour starts April 1st"}
                     </p>
                   </div>
                 </div>
@@ -1719,14 +1716,19 @@ export const ItineraryTemplate = memo(
       }
 
       return (
-        <a href={bookingUrl} className="flex w-[56%] flex-shrink-0">
-          <Button
-            size="default"
-            className="h-9 w-full rounded-full bg-primary px-3 text-[11px] font-semibold tracking-[0.08em] text-primary-foreground hover:bg-primary/90"
-          >
-            {data.ctaLabel || "RESERVE NOW $650"}
-          </Button>
-        </a>
+        <div className="flex w-[56%] flex-shrink-0 flex-col items-center gap-1">
+          <a href={bookingUrl} className="flex w-full">
+            <Button
+              size="default"
+              className="h-9 w-full rounded-full bg-primary px-3 text-[11px] font-semibold tracking-[0.08em] text-primary-foreground hover:bg-primary/90"
+            >
+              {data.ctaLabel || "RESERVE NOW $650"}
+            </Button>
+          </a>
+          <p className="text-center text-[10px] leading-none text-muted-foreground">
+            Deposit is non-refundable.
+          </p>
+        </div>
       );
     })()}
   </div>

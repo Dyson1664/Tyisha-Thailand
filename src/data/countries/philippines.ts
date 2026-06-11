@@ -17,14 +17,15 @@ import phTurtle from "@/assets/PH East/turtle.jpg";
 import { Home, Zap, Plane, Users, UtensilsCrossed } from "lucide-react";
 
 export const philippinesData = {
-  id: "vietnam-emerald-escape",
-  slug: "vietnam",
+  id: "philippines-island-explorer",
+  slug: "philippines",
   title: "Philippines Island Explorer",
   subtitle: "8 Days | Cebu → Moalboal → Boracay",
   location: "Philippines",
   duration: "8 Days",
+  startDate: "April 1st - April 8th",
   price: "$2,495",
-  ctaLabel: "Reserve Now $500",
+  ctaLabel: "$650 Deposit",
   heroImage: phDesktopTurtle,
   desktopHeroVideo: phMoalboalVideo,
   desktopHeroPosterImage: phTurtle,
@@ -150,7 +151,7 @@ export const philippinesData = {
       description:
         "Wake up, grab breakfast, and get ready for one of the most magical days of the trip. Today we head into the water for an unforgettable snorkelling experience. Moalboal is famous for its marine life, and you will get the chance to swim among colourful corals, tropical fish, the iconic sardine run, and, if we are lucky, turtles gliding through the ocean like absolute legends. There is something pretty special about seeing turtles in their natural habitat. Do not be surprised if someone quietly sheds a happy tear into their snorkel mask. Later, Noah will host a short Art of Having Everything session, introducing scripting, manifestation, and a grounding guided meditation. In the evening, we will head out to experience Moalboal’s nightlife. Expect beach bars, good vibes, and at least one person recreating the sardine run on the dance floor.",
       meals: "1 breakfast",
-      highlights: "Snorkelling with turtles, sardine run",
+      highlights: "Snorkelling with turtles, sardine run, manifestation and meditation workshop",
       accommodation: { name: "Quo Vadis Dive Resort or similar" },
     },
     {

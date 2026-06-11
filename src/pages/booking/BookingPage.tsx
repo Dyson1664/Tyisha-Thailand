@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { format } from "date-fns";
-import { CalendarIcon, Users } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/common/Footer";
@@ -12,6 +12,14 @@ import Footer from "@/components/common/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -33,8 +41,8 @@ const PAYMENTS_ENABLED = true;
 /**
  * ✅ Option 1: Send user to Shopify product page (no variant IDs needed).
  * Your Shopify product handle is the part after /products/
- * Example: https://tbff.imaginebeyondtravel.com/products/vietnam-deposit
- * Handle = vietnam-deposit
+ * Example: https://tbff.imaginebeyondtravel.com/products/philippines-deposit
+ * Handle = philippines-deposit
  */
 const BOOKING_CONFIG: Record<
   string,
@@ -46,10 +54,10 @@ const BOOKING_CONFIG: Record<
     shopifyDomain: string;
   }
 > = {
-  vietnam: {
+  philippines: {
     countryName: "Philippines",
-    productHandle: "vietnam-deposit",
-    variantId: "45526423830707",
+    productHandle: "philippines-deposit",
+    variantId: "45568665518259",
     requiresPassport: false,
     shopifyDomain: "tbff.imaginebeyondtravel.com",
   },
@@ -208,6 +216,8 @@ export default function BookingPage2() {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [acknowledgementOpen, setAcknowledgementOpen] = useState(false);
+  const [pendingBookingData, setPendingBookingData] = useState<BookingFormData | null>(null);
 
 
   useEffect(() => {
@@ -265,7 +275,7 @@ export default function BookingPage2() {
     );
   }
 
-  const onSubmit = async (data: BookingFormData) => {
+  const continueToShopify = (data: BookingFormData) => {
     if (!PAYMENTS_ENABLED) {
       setIsSubmitting(false);
       return;
@@ -282,6 +292,7 @@ export default function BookingPage2() {
       Instagram: data.instagram?.trim() ? data.instagram.trim() : "Not provided",
       "Number of Guests": String(data.guestCount ?? 1),
       "Terms Accepted": "Yes",
+      "Deposit Non-Refundable Acknowledged": "Yes",
     };
 
     if (config.requiresPassport) {
@@ -312,6 +323,22 @@ export default function BookingPage2() {
     window.location.href = destinationUrl;
   };
 
+  const onSubmit = async (data: BookingFormData) => {
+    if (!PAYMENTS_ENABLED) {
+      setIsSubmitting(false);
+      return;
+    }
+
+    setPendingBookingData(data);
+    setAcknowledgementOpen(true);
+  };
+
+  const handleDepositAcknowledgement = () => {
+    if (!pendingBookingData) return;
+    setAcknowledgementOpen(false);
+    continueToShopify(pendingBookingData);
+  };
+
   const paymentDisabled = !PAYMENTS_ENABLED;
 
   return (
@@ -332,28 +359,15 @@ export default function BookingPage2() {
           <div className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                <div className="bg-primary/10 border border-primary/20 rounded-lg p-4 flex gap-3 items-start">
-                  <div className="bg-primary/20 rounded-full p-2 mt-0.5">
-                    <Users className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-foreground">
-                      Booking for more than one person?
-                    </p>
-                    <p className="text-xs text-muted-foreground leading-relaxed mt-1">
-                      Please complete only the lead traveler’s details during checkout. We’ll follow up with you for the remaining traveler details.
-                    </p>
-                  </div>
-                </div>
-
                 <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
                   <p className="text-sm font-semibold text-foreground">
                     Payment Plan
                   </p>
                   <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                    Secure your spot with a $500 deposit, then complete your
-                    remaining balance in 2 installments: a first balance payment
-                    in October, then the final balance payment in February.
+                    Secure your spot with a non-refundable $650 USD deposit,
+                    then complete your remaining balance in 2 installments: a
+                    first balance payment in October, then the final balance
+                    payment in February.
                   </p>
                 </div>
 
@@ -575,8 +589,14 @@ export default function BookingPage2() {
                     ? "Payments Opening Soon"
                     : isSubmitting
                     ? "Redirecting..."
-                    : "Continue Standard Price"}
+                    : "Pay $650 Deposit"}
                 </Button>
+
+                {!paymentDisabled ? (
+                  <p className="text-xs text-muted-foreground text-center">
+                    Deposit is non-refundable.
+                  </p>
+                ) : null}
 
                 {submitError ? (
                   <p className="text-sm text-destructive text-center pt-3">
@@ -600,6 +620,51 @@ export default function BookingPage2() {
           </div>
         </div>
       </main>
+
+      <Dialog open={acknowledgementOpen} onOpenChange={setAcknowledgementOpen}>
+        <DialogContent className="max-w-md overflow-hidden border-primary/20 p-0">
+          <div className="bg-primary px-6 py-4 text-primary-foreground">
+            <DialogHeader className="space-y-1 text-left">
+              <DialogTitle className="text-xl font-bold">
+                Deposit acknowledgement
+              </DialogTitle>
+              <DialogDescription className="text-primary-foreground/90">
+                Please confirm before continuing to payment.
+              </DialogDescription>
+            </DialogHeader>
+          </div>
+
+          <div className="space-y-4 px-6 py-5">
+            <p className="text-sm leading-relaxed text-foreground">
+              I acknowledge that the $650 USD deposit to secure my spot is
+              non-refundable.
+            </p>
+            <p className="text-xs leading-relaxed text-muted-foreground">
+              This acknowledgement will be included with your booking details at
+              checkout.
+            </p>
+          </div>
+
+          <DialogFooter className="gap-2 border-t bg-muted/30 px-6 py-4 sm:gap-2">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => setAcknowledgementOpen(false)}
+              disabled={isSubmitting}
+            >
+              Go Back
+            </Button>
+            <Button
+              type="button"
+              onClick={handleDepositAcknowledgement}
+              disabled={isSubmitting}
+              className="bg-primary text-primary-foreground hover:bg-primary/90"
+            >
+              Acknowledge & Continue
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
 
       <Footer />
     </div>

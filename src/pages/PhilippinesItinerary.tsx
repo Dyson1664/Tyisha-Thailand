@@ -44,6 +44,10 @@ const PhilippinesDesktopHero = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CalendarIcon className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
+                <span className="font-playfair">{philippinesData.startDate}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
                 <span className="font-playfair">Philippines</span>
               </div>
             </div>
@@ -70,6 +74,9 @@ const PhilippinesDesktopHero = () => {
                 {philippinesData.ctaLabel}
               </button>
             </a>
+            <p className="mt-1 text-xs font-semibold text-slate-600">
+              Deposit is non-refundable.
+            </p>
           </div>
         </div>
       </div>

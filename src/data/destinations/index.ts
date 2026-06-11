@@ -6,14 +6,14 @@ import { DestinationData, ItineraryData } from "@/data/types";
 export type { Trip, DestinationData, ItineraryData } from "@/data/types";
 
 export const destinationsData: Record<string, DestinationData> = {
-  vietnam: {
+  philippines: {
     country: "Philippines",
     heroImage: philippinesHeroImage,
     heroSubtitle: "8 Days | Cebu → Moalboal → Boracay",
     trips: [
       {
-        id: "vietnam-emerald-escape",
-        slug: "vietnam",
+        id: "philippines-island-explorer",
+        slug: "philippines",
         title: "Philippines Island Explorer",
         duration: "8 Days",
         description: "8 Days | Cebu → Moalboal → Boracay",
