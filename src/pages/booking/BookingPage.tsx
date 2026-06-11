@@ -622,33 +622,30 @@ export default function BookingPage2() {
       </main>
 
       <Dialog open={acknowledgementOpen} onOpenChange={setAcknowledgementOpen}>
-        <DialogContent className="max-w-md overflow-hidden border-primary/20 p-0">
-          <div className="bg-primary px-6 py-4 text-primary-foreground">
+        <DialogContent className="w-[calc(100vw-3rem)] max-w-xs overflow-hidden border-primary/20 p-0 sm:max-w-sm">
+          <div className="border-b border-primary/15 bg-primary/10 px-4 py-3 sm:px-5 sm:py-4">
             <DialogHeader className="space-y-1 text-left">
-              <DialogTitle className="text-xl font-bold">
-                Deposit acknowledgement
+              <DialogTitle className="text-base font-semibold text-foreground sm:text-lg">
+                Quick confirmation
               </DialogTitle>
-              <DialogDescription className="text-primary-foreground/90">
-                Please confirm before continuing to payment.
+              <DialogDescription className="text-xs text-muted-foreground sm:text-sm">
+                Please confirm this before checkout.
               </DialogDescription>
             </DialogHeader>
           </div>
 
-          <div className="space-y-4 px-6 py-5">
-            <p className="text-sm leading-relaxed text-foreground">
+          <div className="px-4 py-3 sm:px-5 sm:py-4">
+            <p className="text-xs leading-relaxed text-foreground sm:text-sm">
               I acknowledge that the $650 USD deposit to secure my spot is
               non-refundable.
             </p>
-            <p className="text-xs leading-relaxed text-muted-foreground">
-              This acknowledgement will be included with your booking details at
-              checkout.
-            </p>
           </div>
 
-          <DialogFooter className="gap-2 border-t bg-muted/30 px-6 py-4 sm:gap-2">
+          <DialogFooter className="gap-2 border-t bg-muted/20 px-4 py-3 sm:gap-2 sm:px-5">
             <Button
               type="button"
               variant="outline"
+              size="sm"
               onClick={() => setAcknowledgementOpen(false)}
               disabled={isSubmitting}
             >
@@ -656,6 +653,7 @@ export default function BookingPage2() {
             </Button>
             <Button
               type="button"
+              size="sm"
               onClick={handleDepositAcknowledgement}
               disabled={isSubmitting}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
