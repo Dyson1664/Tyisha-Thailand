@@ -103,7 +103,6 @@ const baseSchema = z.object({
   fullName: z.string().trim().min(1, "Full name is required").max(100),
   email: z.string().trim().email("Please enter a valid email address").max(255),
   mobile: z.string().trim().min(1, "Mobile number is required").max(30),
-  instagram: z.string().trim().max(50).optional().or(z.literal("")),
   guestCount: z.coerce.number().int().min(1, "Minimum 1 guest").max(10),
   termsAccepted: z.literal(true, {
     errorMap: () => ({ message: "You must accept the terms and conditions" }),
@@ -238,7 +237,6 @@ export default function BookingPage2() {
       fullName: "",
       email: "",
       mobile: "",
-      instagram: "",
       guestCount: 1,
       termsAccepted: undefined,
 
@@ -289,7 +287,6 @@ export default function BookingPage2() {
       "Full Name": data.fullName,
       Email: data.email,
       Mobile: data.mobile,
-      Instagram: data.instagram?.trim() ? data.instagram.trim() : "Not provided",
       "Number of Guests": String(data.guestCount ?? 1),
       "Terms Accepted": "Yes",
       "Deposit Non-Refundable Acknowledged": "Yes",
@@ -418,24 +415,6 @@ export default function BookingPage2() {
                         <Input
                           type="tel"
                           placeholder="+1 234 567 8900"
-                          {...field}
-                          className="h-11"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="instagram"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Instagram Handle (Optional)</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="@yourusername"
                           {...field}
                           className="h-11"
                         />
@@ -626,18 +605,21 @@ export default function BookingPage2() {
           <div className="border-b border-primary/15 bg-primary/10 px-4 py-3 sm:px-5 sm:py-4">
             <DialogHeader className="space-y-1 text-left">
               <DialogTitle className="text-base font-semibold text-foreground sm:text-lg">
-                Quick confirmation
+                Deposit Confirmation
               </DialogTitle>
               <DialogDescription className="text-xs text-muted-foreground sm:text-sm">
-                Please confirm this before checkout.
+                Before continuing to payment, please confirm the following:
               </DialogDescription>
             </DialogHeader>
           </div>
 
-          <div className="px-4 py-3 sm:px-5 sm:py-4">
+          <div className="space-y-3 px-4 py-3 sm:px-5 sm:py-4">
             <p className="text-xs leading-relaxed text-foreground sm:text-sm">
-              I acknowledge that the $650 USD deposit to secure my spot is
-              non-refundable.
+              Your $650 USD deposit reserves your place on the trip and will be
+              applied toward your total trip balance.
+            </p>
+            <p className="text-xs leading-relaxed text-foreground sm:text-sm">
+              I understand that deposits are non-refundable once paid.
             </p>
           </div>
 
@@ -658,7 +640,7 @@ export default function BookingPage2() {
               disabled={isSubmitting}
               className="bg-primary text-primary-foreground hover:bg-primary/90"
             >
-              Acknowledge & Continue
+              Confirm & Continue to Payment
             </Button>
           </DialogFooter>
         </DialogContent>
