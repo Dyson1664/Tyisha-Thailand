@@ -363,8 +363,8 @@ export default function BookingPage2() {
                   <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
                     Secure your spot with a non-refundable $650 USD deposit,
                     then complete your remaining balance in 2 installments: a
-                    first balance payment in October, then the final balance
-                    payment in February.
+                    first balance payment due October 31, then the final balance
+                    payment due January 31.
                   </p>
                 </div>
 

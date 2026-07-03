@@ -24,8 +24,9 @@ export const philippinesData = {
   location: "Philippines",
   duration: "8 Days",
   startDate: "April 1st - April 8th",
-  price: "TBD",
-  priceNote: "First 6 people save $200 USD.",
+  price: "$2,259",
+  priceOriginal: "$2,459",
+  priceNote: "Early bird: first 6 people save $200 USD.",
   ctaLabel: "$650 Deposit",
   heroImage: phDesktopTurtle,
   desktopHeroVideo: phMoalboalVideo,
@@ -113,7 +114,7 @@ export const philippinesData = {
     {
       icon: UtensilsCrossed,
       title: "LOCAL<br />CUISINE",
-      description: "6 breakfasts and 2 lunches, including a local lechon lunch on the journey to Moalboal.",
+      description: "7 breakfasts and 2 lunches, including a local lechon lunch on the journey to Moalboal.",
     },
   ],
   itinerary: [
@@ -140,7 +141,7 @@ export const philippinesData = {
       heroImage: phDay2Church,
       description:
         "This morning, we leave the city behind and make our way to the beautiful seaside town of Moalboal. Pronounced “mole-bowl”, for anyone wondering. On the way, we will stop for a local lunch, lechon style. This is one of the Philippines’ most famous dishes, and for the brave foodies in the group, it is a must-try. Bellies full and energy high, we will visit the incredible Simala Church. This place looks like it has been lifted straight out of a fairytale, so make sure your camera is ready. It is also known by many locals as a place of miracles, so feel free to put in a good word for next week’s lottery numbers. After a relaxed walking tour, we continue to Moalboal. The afternoon is yours to enjoy. Grab an iced coffee, explore the town, get a Filipino massage, or just settle into island mode.",
-      meals: "1 lunch",
+      meals: "1 breakfast, 1 lunch",
       highlights: "Moalboal walking tour, Simala Church visit",
       accommodation: { name: "Quo Vadis Dive Resort or similar" },
     },
@@ -226,7 +227,6 @@ export const philippinesData = {
         { text: "Guided manifestation and meditation session" },
         { text: "Canyoneering" },
         { text: "Waterfalls" },
-        { text: "Boracay sunset experience" },
         { text: "Paraw sailing" },
         { text: "Island hopping boat party" },
       ],
@@ -234,7 +234,7 @@ export const philippinesData = {
     {
       title: "Meals Included",
       items: [
-        { text: "6 breakfasts" },
+        { text: "7 breakfasts" },
         { text: "2 lunches, including local lechon lunch" },
       ],
     },
@@ -251,11 +251,7 @@ export const philippinesData = {
   faqs: [
     {
       question: "Which airports should I fly into and out of?",
-      answer: "Fly into Mactan-Cebu International Airport (CEB) for the start of the trip. The tour finishes in Boracay, so most travellers depart via Caticlan Airport (MPH) or continue their Philippines adventure from there.",
-    },
-    {
-      question: "Do I need to be a strong swimmer?",
-      answer: "You should be comfortable in the water for snorkelling, paraw sailing, and the island hopping boat party. Life jackets are available for water activities, and your tour guide will help you decide what feels right on the day.",
+      answer: "Fly into Mactan-Cebu International Airport (CEB) for the start of the trip. The tour finishes in Boracay, so most travellers depart via Caticlan Airport (Boracay/MPH) or continue their Philippines adventure from there.",
     },
     {
       question: "Is canyoneering suitable for beginners?",
@@ -263,7 +259,7 @@ export const philippinesData = {
     },
     {
       question: "What meals are included?",
-      answer: "The trip includes 6 breakfasts and 2 lunches, including a local lechon lunch on the journey to Moalboal. Other meals are left flexible so you can explore local restaurants and beach spots with the group.",
+      answer: "The trip includes 7 breakfasts and 2 lunches, including a local lechon lunch on the journey to Moalboal. Other meals are left flexible so you can explore local restaurants and beach spots with the group.",
     },
     {
       question: "What is the local currency?",

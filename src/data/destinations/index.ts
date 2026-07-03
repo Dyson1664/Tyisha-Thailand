@@ -18,7 +18,7 @@ export const destinationsData: Record<string, DestinationData> = {
         duration: "8 Days",
         description: "8 Days | Cebu → Moalboal → Boracay",
         image: philippinesHeroImage,
-        price: "$2,495",
+        price: "$2,259",
         route: "/philippines-itinerary"
       }
     ],
