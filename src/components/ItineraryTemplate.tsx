@@ -1040,7 +1040,7 @@ const IncludedSection = memo(
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 lg:gap-x-24 gap-y-12 max-w-7xl mx-auto">
           <div className="space-y-12">
             {included
-              .filter((section) => section.title !== "Meals Included" && section.title !== "Transport & Local Guide")
+              .filter((section) => section.title !== "Included Experiences")
               .map((section, index) => (
                 <div key={index} className="space-y-5">
                   <h4 className="font-semibold text-foreground text-lg mb-5">{section.title}</h4>
@@ -1057,7 +1057,7 @@ const IncludedSection = memo(
 
           <div className="space-y-8">
             {included
-              .filter((section) => section.title === "Meals Included" || section.title === "Transport & Local Guide")
+              .filter((section) => section.title === "Included Experiences")
               .map((section, index) => (
                 <div key={index} className="space-y-5">
                   <h4 className="font-semibold text-foreground text-lg mb-5">{section.title}</h4>
@@ -1343,25 +1343,24 @@ export const ItineraryTemplate = memo(
       }, 150);
     }, []);
 
-    // Scroll to top when accordion opens
+    // Keep the opened day centered on desktop; retain the mobile header offset.
     const handleAccordionChange = useCallback((value: string) => {
       if (value) {
         setTimeout(() => {
-          const dayNumber = value.replace("day-", "");
-          const dayHeaders = document.querySelectorAll("h2");
-          for (const header of dayHeaders) {
-            if (header.textContent && header.textContent.includes(`Day ${dayNumber}`)) {
-              let offsetTop = 0;
-              let element = header as HTMLElement;
-              while (element) {
-                offsetTop += element.offsetTop;
-                element = element.offsetParent as HTMLElement;
-              }
-              window.scrollTo({ top: offsetTop - 150, behavior: "smooth" });
-              break;
-            }
+          const item = document.querySelector(`[data-itinerary-day="${value}"]`);
+          const trigger = item?.querySelector("[data-accordion-trigger]") as HTMLElement | null;
+          if (!trigger) return;
+
+          const rect = trigger.getBoundingClientRect();
+          const desktop = window.matchMedia("(min-width: 768px)").matches;
+          const targetTop = desktop
+            ? window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2
+            : window.scrollY + rect.top - 150;
+
+          if (Math.abs(window.scrollY - targetTop) > 40) {
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
           }
-        }, 200);
+        }, 250);
       }
     }, []);
 
@@ -1378,6 +1377,7 @@ export const ItineraryTemplate = memo(
             <AccordionItem
               key={day.day}
               value={`day-${day.day}`}
+              data-itinerary-day={`day-${day.day}`}
               className={`bg-background border-0 ${
                 index === 0 ? "rounded-t-2xl" : ""
               } ${index === data.itinerary.length - 1 ? "rounded-b-2xl" : ""}`}

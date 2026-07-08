@@ -124,7 +124,7 @@ export const philippinesData = {
       location: "Cebu City",
       heroImage: phCebu,
       description:
-        "Welcome to the Philippines! It is hot, it is tropical, and yes, you are absolutely going to love it. Today is all about arriving in Cebu City, meeting your group, and getting to know your tour guide. These are the people you will be island-hopping, waterfall-jumping, cocktail-sipping, and probably embarrassing yourself on the dance floor with over the next week. This evening, we will head out for a few drinks. Pina Colada? Mango daiquiri? Five? No judgement here. Let the adventure begin.",
+        "Welcome to the Philippines! It is hot, it is tropical, and yes, you are absolutely going to love it. Today is all about arriving in Cebu City, meeting your group, and getting to know your tour guide. These are the people you will be island-hopping, waterfall-jumping, cocktail-sipping, and probably embarrassing yourself on the dance floor with over the next week.",
       highlights: "Meet your group and tour guide",
       accommodation: { name: "Hop Inn Cebu City or similar" },
       transportation: {
@@ -173,9 +173,9 @@ export const philippinesData = {
       location: "Boracay",
       heroImage: phBoracay1,
       description:
-        "Paradise is calling. Today, we travel back to Cebu Airport and catch a short flight to Caticlan, the gateway to Boracay. From there, we hop over to the island and check into our resort, our home for the next three nights. Boracay is famous for powdery white sand, bright blue water, beach clubs, sunsets, and a nightlife scene that does not mess around. Once we are settled in, we will head out to watch the sunset. Depending on the group vibe, we might grab a few drinks on the beach or join a sunset cruise. After that, it is time for a group dinner and a night out for anyone ready to experience Boracay after dark. Want to chill instead? Completely fair. Massage, shower, early night, and no one needs to know.",
+        "Paradise is calling. Today, we travel back to Cebu Airport and catch a short flight to Caticlan, the gateway to Boracay. From there, we hop over to the island and check into our resort, our home for the next three nights. Boracay is famous for powdery white sand, bright blue water, beach clubs, sunsets, and a nightlife scene that does not mess around. Once we are settled in, we will head out to watch the sunset. After that, it is time for a group dinner and a night out for anyone ready to experience Boracay after dark. Want to chill instead? Completely fair. Massage, shower, early night, and no one needs to know.",
       meals: "1 breakfast",
-      highlights: "Flight to Caticlan, ferry to Boracay",
+      highlights: "Flight to Caticlan Airport (Boracay), ferry to Boracay",
       accommodation: { name: "Commander Suites or similar" },
     },
     {
@@ -195,9 +195,9 @@ export const philippinesData = {
       location: "Boracay",
       heroImage: phBoatParty,
       description:
-        "It is our last full day together, so obviously we are going out with a bang. Today is boat party day. We will spend the day island hopping, snorkelling in crystal-clear water, floating around, soaking up the sun, and making the most of every final moment in paradise. Expect music, drinks, swimming, lunch, and all the “how is this real life?” energy. Later, we head back to shore and get ready for our farewell dinner. This is the final night with your Imagine Beyond crew, so dress up, order dessert, make a toast, and celebrate an unforgettable week in the Philippines. The goodbye might hurt, but the memories will be worth it.",
+        "It is our last full day together, so obviously we are going out with a bang. Today is boat party day. We will spend the day island hopping, snorkelling in crystal-clear water, floating around, soaking up the sun, and making the most of every final moment in paradise. Expect music, drinks, swimming, lunch, and all the “how is this real life?” energy. Later, we head back to shore and get ready for our farewell dinner. This is the final night, so dress up, order dessert, make a toast, and celebrate an unforgettable week in the Philippines. The goodbye might hurt, but the memories will be worth it.",
       meals: "1 breakfast",
-      highlights: "Island hopping boat party",
+      highlights: "Boat party",
       accommodation: { name: "Commander Suites or similar" },
     },
     {
@@ -219,6 +219,23 @@ export const philippinesData = {
   },
   included: [
     {
+      title: "Meals & Accommodation Included",
+      items: [
+        { text: "7 nights of accommodation" },
+        { text: "7 breakfasts" },
+        { text: "2 lunches, including local lechon lunch" },
+      ],
+    },
+    {
+      title: "Transport & Local Guide",
+      items: [
+        { text: "Ground transfers" },
+        { text: "Flight to Caticlan Airport (Boracay)" },
+        { text: "Short ferry to Boracay" },
+        { text: "24/7 local guide" },
+      ],
+    },
+    {
       title: "Included Experiences",
       items: [
         { text: "Moalboal walking tour" },
@@ -228,23 +245,7 @@ export const philippinesData = {
         { text: "Canyoneering" },
         { text: "Waterfalls" },
         { text: "Paraw sailing" },
-        { text: "Island hopping boat party" },
-      ],
-    },
-    {
-      title: "Meals Included",
-      items: [
-        { text: "7 breakfasts" },
-        { text: "2 lunches, including local lechon lunch" },
-      ],
-    },
-    {
-      title: "Transport & Local Guide",
-      items: [
-        { text: "Ground transfers" },
-        { text: "Flight to Caticlan" },
-        { text: "Ferry to Boracay" },
-        { text: "24/7 local guide" },
+        { text: "Boat party" },
       ],
     },
   ],
