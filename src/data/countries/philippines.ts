@@ -1,16 +1,15 @@
 import phBoatParty from "@/assets/PH East/boat_party.avif";
 import phBoracay1 from "@/assets/PH East/boracay_1.jpg";
-import phPb from "@/assets/PH East/pb.jpg";
-import phBoracayDay8 from "@/assets/PH East/boracay_day a-8.JPEG";
+import phNoah1 from "@/assets/PH East/noah-1.jpg";
 import phBoracaySunset from "@/assets/PH East/boracay_sunset.jpg";
 import phBoracayVideo from "@/assets/PH East/Boracay_video.mp4";
 import phCebu from "@/assets/PH East/cebu.jpg";
 import phCanyon2 from "@/assets/PH East/canyon_2.jpg";
-import phCanyoneering from "@/assets/PH East/mb_canyon.avif";
+import phNoah3 from "@/assets/PH East/noah-3.jpg";
 import phDay2Church from "@/assets/PH East/day2_church.jpg";
-import phDesktop2 from "@/assets/PH East/desktop_2.jpg";
+import phNoah2 from "@/assets/PH East/noah-2.jpg";
 import phDesktopTurtle from "@/assets/PH East/desktop_turtle.jpg";
-import phDesktop3 from "@/assets/PH East/desktop3.JPEG";
+import phNoah4 from "@/assets/PH East/noah-4.jpg";
 import phMoalboalVideo from "@/assets/PH East/moalboal_vid.mp4";
 import phParawSailing from "@/assets/PH East/paraw_sailing.jpg";
 import phTurtle from "@/assets/PH East/turtle.jpg";
@@ -31,13 +30,14 @@ export const philippinesData = {
   heroImage: phDesktopTurtle,
   desktopHeroVideo: phMoalboalVideo,
   desktopHeroPosterImage: phTurtle,
-  desktopTopMiddleImage: phDesktop2,
+  desktopTopMiddleImage: phNoah2,
   desktopTopMiddleObjectPosition: "50% 75%",
   desktopTopRightImage: phDesktopTurtle,
   desktopTopRightObjectPosition: "50% 75%",
-  desktopBottomLeftImage: phPb,
-  desktopBottomMiddleImage: phDesktop3,
-  desktopBottomRightImage: phCanyon2,
+  desktopBottomLeftImage: phNoah4,
+  desktopBottomMiddleImage: phCanyon2,
+  desktopBottomMiddleObjectPosition: "50% 85%",
+  desktopBottomRightImage: phNoah1,
   desktopBottomRightObjectPosition: "50% 78%",
   hideSummary: true,
   route: ["Cebu", "Moalboal", "Boracay"],
@@ -48,14 +48,14 @@ export const philippinesData = {
     { emoji: "🏖️", label: "Beach" },
   ],
   aboutDescription: [
-    "Get ready for tropical chaos in the best possible way. Think turquoise water, white-sand beaches, waterfalls, snorkelling with turtles, sunset sailing, boat parties, local food, and a group of new travel mates who will very quickly feel like family.",
-    "Hosted by Noah, aka The Black Culdron, this trip brings the online magic into real life: island adventures, spirituality, folklore, culture, manifestation moments, big laughs, and plenty of time to soak up the Philippines.",
+    "Hosted by Noah, aka The Black Culdron, get ready for tropical chaos in the best possible way. Think turquoise water, white-sand beaches, waterfalls, snorkelling with turtles, sunset sailing, boat parties, local food, and a group of new travel mates who will very quickly feel like family.",
+    "This trip brings the online magic into real life: island adventures, spirituality, folklore, culture, manifestation moments, big laughs, and plenty of time to soak up the Philippines.",
   ],
   aboutImages: [phCebu, phBoracay1],
   highlights: [
     {
       title: "Boracay",
-      description: "Arguably the best beach in the world, with white sand, turquoise water, sunset sailing, and island nightlife.",
+      description: "Arguably one of the best beaches in the world, with white sand, turquoise water, sunset sailing, and island nightlife.",
       video: phBoracayVideo,
       videoAspectRatio: "5 / 7",
       videoObjectPosition: "top center",
@@ -160,7 +160,7 @@ export const philippinesData = {
       day: 4,
       title: "Canyoneering Adventure",
       location: "Moalboal",
-      heroImage: phCanyoneering,
+      heroImage: phNoah3,
       description:
         "Today is a big one. We are off canyoneering through waterfalls, rivers, rock pools, and jungle scenery. This is one of the Philippines’ most iconic adventure activities, and it is every bit as epic as it sounds. Whether you are the first to jump, the last to jump, or firmly in the “I am absolutely not jumping off that” club, we have got you. Float downstream, scramble over rocks, splash through crystal-clear water, and get those GoPro shots ready. After the adventure, we will enjoy a late lunch and then take the evening slow. You have earned a chilled night before we continue to our next dreamy destination: Boracay.",
       meals: "1 breakfast, 1 lunch",
@@ -204,7 +204,7 @@ export const philippinesData = {
       day: 8,
       title: "Chilled Check-Out",
       location: "Boracay",
-      heroImage: phBoracayDay8,
+      heroImage: phNoah2,
       description:
         "Today, it is time to say goodbye. After breakfast, we will help with onward travel plans, whether you are heading home, staying in Boracay, or continuing your adventure through the Philippines. You arrived as strangers, but you leave as part of the Imagine Beyond family. And as every good traveller knows, goodbye really just means “see you somewhere else in the world.”",
       meals: "1 breakfast",

@@ -96,29 +96,30 @@ const PhilippinesDesktopHero = () => {
           <img
             src={philippinesData.desktopTopMiddleImage}
             alt="Boracay beach in the Philippines"
-            className="col-span-5 h-full w-full object-cover"
+            className="order-2 col-span-5 h-full w-full object-cover"
             style={{ objectPosition: philippinesData.desktopTopMiddleObjectPosition }}
           />
           <img
             src={philippinesData.desktopTopRightImage}
             alt="Tropical water in the Philippines"
-            className="col-span-4 h-full w-full object-cover"
+            className="order-2 col-span-4 h-full w-full object-cover"
             style={{ objectPosition: philippinesData.desktopTopRightObjectPosition }}
           />
           <img
             src={philippinesData.desktopBottomLeftImage}
             alt="Boracay shoreline"
-            className="col-span-3 h-full w-full object-cover"
+            className="order-1 col-span-3 h-full w-full object-cover"
           />
           <img
             src={philippinesData.desktopBottomMiddleImage}
             alt="Philippines island view"
-            className="col-span-3 h-full w-full object-cover"
+            className="order-1 col-span-3 h-full w-full object-cover"
+            style={{ objectPosition: philippinesData.desktopBottomMiddleObjectPosition }}
           />
           <img
             src={philippinesData.desktopBottomRightImage}
             alt="Canyoneering waterfall in Cebu"
-            className="col-span-3 h-full w-full object-cover"
+            className="order-1 col-span-3 h-full w-full object-cover"
             style={{ objectPosition: philippinesData.desktopBottomRightObjectPosition }}
           />
         </div>
