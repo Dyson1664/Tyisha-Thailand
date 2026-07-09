@@ -14,6 +14,8 @@ import phNoah5 from "@/assets/PH East/noah-5.jpg";
 import phMoalboalVideo from "@/assets/PH East/moalboal_vid.mp4";
 import phParawSailing from "@/assets/PH East/paraw_sailing.webp";
 import phTurtle from "@/assets/PH East/turtle.webp";
+import phTripHighlightCover1 from "@/assets/PH East/trip-highlight-cover-1.jpg";
+import phTripHighlightCover2 from "@/assets/PH East/trip-highlight-cover-2.jpg";
 import { Home, Zap, Plane, Users, UtensilsCrossed } from "lucide-react";
 
 export const philippinesData = {
@@ -57,6 +59,7 @@ export const philippinesData = {
     {
       title: "Boracay",
       description: "Arguably one of the best beaches in the world, with white sand, turquoise water, sunset sailing, and island nightlife.",
+      image: phTripHighlightCover1,
       video: phBoracayVideo,
       videoAspectRatio: "5 / 7",
       videoObjectPosition: "top center",
@@ -64,7 +67,7 @@ export const philippinesData = {
     {
       title: "Swimming with Turtles",
       description: "Snorkel in Moalboal's clear tropical water and swim alongside turtles, colourful coral, and the famous sardine run.",
-      image: phTurtle,
+      image: phTripHighlightCover2,
       video: phMoalboalVideo,
       videoAspectRatio: "5 / 7",
       videoObjectPosition: "center center",

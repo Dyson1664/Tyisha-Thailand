@@ -475,7 +475,8 @@ return (
                         <video
                           ref={(el) => (mobileVideoRefs.current[index] = el)}
                           src={highlight.video}
-                          preload="auto"
+                          poster={highlight.image}
+                          preload="metadata"
                           className="w-full h-full object-cover"
                           style={{ objectPosition: highlight.videoObjectPosition }}
                           controls={isPlaying}
