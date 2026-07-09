@@ -1,18 +1,18 @@
 import phBoatParty from "@/assets/PH East/boat_party.avif";
-import phBoracay1 from "@/assets/PH East/boracay_1.jpg";
+import phBoracay1 from "@/assets/PH East/boracay_1.webp";
 import phNoah1 from "@/assets/PH East/noah-1.jpg";
-import phBoracaySunset from "@/assets/PH East/boracay_sunset.jpg";
+import phBoracaySunset from "@/assets/PH East/boracay_sunset.webp";
 import phBoracayVideo from "@/assets/PH East/Boracay_video.mp4";
 import phCebu from "@/assets/PH East/cebu.jpg";
-import phCanyon2 from "@/assets/PH East/canyon_2.jpg";
+import phCanyon2 from "@/assets/PH East/canyon_2.webp";
 import phNoah3 from "@/assets/PH East/noah-3.jpg";
-import phDay2Church from "@/assets/PH East/day2_church.jpg";
-import phNoah2 from "@/assets/PH East/noah-2.jpg";
-import phDesktopTurtle from "@/assets/PH East/desktop_turtle.jpg";
-import phNoah4 from "@/assets/PH East/noah-4.jpg";
+import phDay2Church from "@/assets/PH East/day2_church.webp";
+import phNoah2 from "@/assets/PH East/noah-2.webp";
+import phDesktopTurtle from "@/assets/PH East/desktop_turtle.webp";
+import phNoah4 from "@/assets/PH East/noah-4.webp";
 import phMoalboalVideo from "@/assets/PH East/moalboal_vid.mp4";
-import phParawSailing from "@/assets/PH East/paraw_sailing.jpg";
-import phTurtle from "@/assets/PH East/turtle.jpg";
+import phParawSailing from "@/assets/PH East/paraw_sailing.webp";
+import phTurtle from "@/assets/PH East/turtle.webp";
 import { Home, Zap, Plane, Users, UtensilsCrossed } from "lucide-react";
 
 export const philippinesData = {

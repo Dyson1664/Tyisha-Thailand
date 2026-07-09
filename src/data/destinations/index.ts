@@ -1,4 +1,4 @@
-import philippinesHeroImage from "@/assets/PH East/desktop_turtle.jpg";
+import philippinesHeroImage from "@/assets/PH East/desktop_turtle.webp";
 
 import { philippinesData } from "@/data/countries/philippines";
 import { DestinationData, ItineraryData } from "@/data/types";

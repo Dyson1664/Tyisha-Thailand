@@ -360,7 +360,7 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
                         <video
                           ref={(el) => (desktopVideoRefs.current[index] = el)}
                           src={highlight.video}
-                          poster={highlight.image}
+                          preload="auto"
                           className="w-full h-full object-cover"
                           style={{ objectPosition: highlight.videoObjectPosition }}
                           controls={isPlaying}
@@ -432,7 +432,7 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
                         <video
                           ref={(el) => (mobileVideoRefs.current[index] = el)}
                           src={highlight.video}
-                          poster={highlight.image}
+                          preload="auto"
                           className="w-full h-full object-cover"
                           style={{ objectPosition: highlight.videoObjectPosition }}
                           controls={isPlaying}
