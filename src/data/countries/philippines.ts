@@ -10,6 +10,7 @@ import phDay2Church from "@/assets/PH East/day2_church.webp";
 import phNoah2 from "@/assets/PH East/noah-2.webp";
 import phDesktopTurtle from "@/assets/PH East/desktop_turtle.webp";
 import phNoah4 from "@/assets/PH East/noah-4.webp";
+import phNoah5 from "@/assets/PH East/noah-5.jpg";
 import phMoalboalVideo from "@/assets/PH East/moalboal_vid.mp4";
 import phParawSailing from "@/assets/PH East/paraw_sailing.webp";
 import phTurtle from "@/assets/PH East/turtle.webp";
@@ -34,7 +35,7 @@ export const philippinesData = {
   desktopTopMiddleObjectPosition: "50% 75%",
   desktopTopRightImage: phDesktopTurtle,
   desktopTopRightObjectPosition: "50% 75%",
-  desktopBottomLeftImage: phNoah4,
+  desktopBottomLeftImage: phNoah5,
   desktopBottomMiddleImage: phCanyon2,
   desktopBottomMiddleObjectPosition: "50% 85%",
   desktopBottomRightImage: phNoah1,

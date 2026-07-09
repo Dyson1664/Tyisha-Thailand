@@ -242,6 +242,8 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
   const desktopVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const mobileVideoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const mobileScrollRef = useRef<HTMLDivElement | null>(null);
+  const [mobileHighlightIndex, setMobileHighlightIndex] = useState(0);
   const [carouselApi, setCarouselApi] = useState<CarouselApi | null>(null);
 
   // Reset all videos (desktop + mobile) so posters/cover images show again
@@ -264,42 +266,6 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
 
     setActiveVideo(null);
   }, []);
-
-  // Whenever the carousel slide changes (desktop), reset videos
-  useEffect(() => {
-    if (!carouselApi) return;
-
-    const onSelect = () => {
-      resetAllVideos();
-    };
-
-    carouselApi.on("select", onSelect);
-
-    // If your CarouselApi supports off():
-    // return () => {
-    //   carouselApi.off("select", onSelect);
-    // };
-  }, [carouselApi, resetAllVideos]);
-
-  const handlePlay = (index: number, mode: "desktop" | "mobile") => {
-    const refs = mode === "desktop" ? desktopVideoRefs.current : mobileVideoRefs.current;
-
-    // Reset all *other* videos so they go back to their cover photos
-    refs.forEach((v, i) => {
-      if (v && i !== index) {
-        v.pause();
-        v.currentTime = 0;
-        v.load();
-      }
-    });
-
-    const video = refs[index];
-    if (video) {
-      video.currentTime = 0;
-      video.play();
-      setActiveVideo(index);
-    }
-  };
 
   // Default highlights if not provided
   const defaultHighlights: TripHighlight[] = [
@@ -324,10 +290,83 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
   const highlights =
     data.highlights && data.highlights.length > 0 ? data.highlights : defaultHighlights;
 
-  return (
+    // Whenever the carousel slide changes (desktop), reset videos
+  useEffect(() => {
+    if (!carouselApi) return;
+
+    const onSelect = () => {
+      resetAllVideos();
+    };
+
+    carouselApi.on("select", onSelect);
+
+    // If your CarouselApi supports off():
+    // return () => {
+    //   carouselApi.off("select", onSelect);
+    // };
+  }, [carouselApi, resetAllVideos]);
+
+  const handleMobileHighlightScroll = useCallback(() => {
+    const scroller = mobileScrollRef.current;
+    if (!scroller) return;
+
+    const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+    const nextIndex = maxScroll > 0
+      ? Math.round((scroller.scrollLeft / maxScroll) * (highlights.length - 1))
+      : 0;
+
+    setMobileHighlightIndex(Math.max(0, Math.min(highlights.length - 1, nextIndex)));
+  }, [highlights.length]);
+
+  const handlePlay = (index: number, mode: "desktop" | "mobile") => {
+    const refs = mode === "desktop" ? desktopVideoRefs.current : mobileVideoRefs.current;
+
+    // Reset all *other* videos so they go back to their cover photos
+    refs.forEach((v, i) => {
+      if (v && i !== index) {
+        v.pause();
+        v.currentTime = 0;
+        v.load();
+      }
+    });
+
+    const video = refs[index];
+    if (video) {
+      video.currentTime = 0;
+      video.play();
+      setActiveVideo(index);
+    }
+  };
+
+return (
     <div>
       {/* Mobile: Just title */}
-      <h3 className="md:hidden text-xl font-semibold text-foreground mb-4">Trip Highlights</h3>
+      <h3 className="md:hidden text-xl font-semibold text-foreground mb-2">Trip Highlights</h3>
+      {highlights.length > 1 && (
+        <div className="mb-4 flex justify-center gap-2 md:hidden" aria-label="Trip highlights slides">
+          {highlights.map((highlight, index) => (
+            <button
+              key={highlight.title}
+              type="button"
+              aria-label={`Show ${highlight.title}`}
+              aria-current={mobileHighlightIndex === index ? "true" : undefined}
+              className="h-2 rounded-full transition-all"
+              style={{
+                width: mobileHighlightIndex === index ? "1.5rem" : "0.5rem",
+                backgroundColor: mobileHighlightIndex === index ? "#0FC2BF" : "rgba(100, 116, 139, 0.45)",
+              }}
+              onClick={() => {
+                const scroller = mobileScrollRef.current;
+                if (!scroller) return;
+                const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                const targetLeft = highlights.length > 1 ? (maxScroll / (highlights.length - 1)) * index : 0;
+                scroller.scrollTo({ left: targetLeft, behavior: "smooth" });
+                setMobileHighlightIndex(index);
+              }}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="relative">
         {/* Desktop: Carousel with external arrows */}
@@ -411,7 +450,11 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
         </Carousel>
 
         {/* Mobile: Swipeable container with peek */}
-        <div className="md:hidden overflow-x-auto overflow-y-hidden scrollbar-none scroll-smooth snap-x snap-mandatory">
+        <div
+          ref={mobileScrollRef}
+          onScroll={handleMobileHighlightScroll}
+          className="md:hidden overflow-x-auto overflow-y-hidden scrollbar-none scroll-smooth snap-x snap-mandatory"
+        >
           <div className="flex pb-2">
             {highlights.map((highlight, index) => {
               const isPlaying = activeVideo === index;
@@ -481,6 +524,29 @@ const TripHighlights = memo(({ data }: { data: CountryData }) => {
             })}
           </div>
         </div>
+        {highlights.length > 1 && (
+          <div className="mt-3 flex justify-center gap-2 md:hidden" aria-label="Trip highlights slides">
+            {highlights.map((highlight, index) => (
+              <button
+                key={highlight.title}
+                type="button"
+                aria-label={`Show ${highlight.title}`}
+                aria-current={mobileHighlightIndex === index ? "true" : undefined}
+                className={`h-2 rounded-full transition-all ${
+                  mobileHighlightIndex === index ? "w-6 bg-primary" : "w-2 bg-muted-foreground/30"
+                }`}
+                onClick={() => {
+                  const scroller = mobileScrollRef.current;
+                  if (!scroller) return;
+                  const maxScroll = scroller.scrollWidth - scroller.clientWidth;
+                  const targetLeft = highlights.length > 1 ? (maxScroll / (highlights.length - 1)) * index : 0;
+                  scroller.scrollTo({ left: targetLeft, behavior: "smooth" });
+                  setMobileHighlightIndex(index);
+                }}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
