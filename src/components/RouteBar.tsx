@@ -1,8 +1,8 @@
 import React from "react";
 import { Route as RouteIcon, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
-// Colors cycle across stops
-const ROUTE_COLORS = ["#06b6d4", "#f97316", "#8b5cf6", "#22c55e", "#eab308", "#ef4444"];
+// Use brand teal for all route stops/connectors
+const ROUTE_COLORS = ["#0FC2BF"];
 const getColor = (i: number) => ROUTE_COLORS[i % ROUTE_COLORS.length];
 
 // --- Mobile: horizontal, draggable scroller (no arrows) ---
@@ -79,11 +79,11 @@ function MobileScroller({ stops }: { stops: string[] }) {
             return (
               <div key={stop + i} className="flex items-center flex-none">
                 <span
-                  className="mr-1.5 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold text-black"
+                  className="mr-1.5 inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-sm font-semibold text-white"
                   style={{ backgroundColor: color }}
                   title={stop}
                 >
-                  <MapPin className="h-4 w-4 text-black opacity-90" />
+                  <MapPin className="h-4 w-4 text-white opacity-90" />
                   <span className="truncate max-w-[180px]">{stop}</span>
                 </span>
 
@@ -248,11 +248,11 @@ function DesktopScroller({ stops, slug }: { stops: string[]; slug?: string }) {
             return (
               <div key={stop + i} className="flex items-center flex-none">
                 <span
-                  className={`mr-1.5 inline-flex items-center rounded-full font-semibold text-black ${presets.chip}`}
+                  className={`mr-1.5 inline-flex items-center rounded-full font-semibold text-white ${presets.chip}`}
                   style={{ backgroundColor: color }}
                   title={stop}
                 >
-                  <MapPin className={`${presets.icon} text-black/90`} />
+                  <MapPin className={`${presets.icon} text-white/90`} />
                   <span className={`truncate ${presets.labelMax}`}>{stop}</span>
                 </span>
 
