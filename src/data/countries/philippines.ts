@@ -12,6 +12,7 @@ import phPb from "@/assets/PH East/pb.jpg";
 import phDesktopTurtle from "@/assets/PH East/desktop_turtle.webp";
 import phNoah4 from "@/assets/PH East/noah-4.webp";
 import phNoah5 from "@/assets/PH East/noah-5.jpg";
+import phNoah7 from "@/assets/PH East/noah-7.jpg";
 import phMoalboalVideo from "@/assets/PH East/moalboal_vid.mp4";
 import phParawSailing from "@/assets/PH East/paraw_sailing.webp";
 import phTurtle from "@/assets/PH East/turtle.webp";
@@ -36,10 +37,10 @@ export const philippinesData = {
   desktopHeroPosterImage: phTurtle,
   desktopTopMiddleImage: phBoracay1,
   desktopTopMiddleObjectPosition: "50% 75%",
-  desktopTopRightImage: phDesktopTurtle,
+  desktopTopRightImage: phNoah7,
   desktopTopRightObjectPosition: "50% 75%",
   desktopBottomLeftImage: phNoah5,
-  desktopBottomMiddleImage: phPb,
+  desktopBottomMiddleImage: phNoah2,
   desktopBottomMiddleObjectPosition: "center top",
   desktopBottomRightImage: phNoah1,
   desktopBottomRightObjectPosition: "50% 78%",
@@ -176,7 +177,7 @@ export const philippinesData = {
       day: 5,
       title: "Moalboal to Boracay",
       location: "Boracay",
-      heroImage: phNoah2,
+      heroImage: phBoracay1,
       description:
         "Paradise is calling. Today, we travel back to Cebu Airport and catch a short flight to Caticlan, the gateway to Boracay. From there, we hop over to the island and check into our resort, our home for the next three nights. Boracay is famous for powdery white sand, bright blue water, beach clubs, sunsets, and a nightlife scene that does not mess around. Once we are settled in, we will head out to watch the sunset. After that, it is time for a group dinner and a night out for anyone ready to experience Boracay after dark. Want to chill instead? Completely fair. Massage, shower, early night, and no one needs to know.",
       meals: "1 breakfast",

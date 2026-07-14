@@ -101,7 +101,7 @@ const PhilippinesDesktopHero = () => {
           />
           <img
             src={philippinesData.desktopTopRightImage}
-            alt="Tropical water in the Philippines"
+            alt="Noah on the Philippines trip"
             className="order-2 col-span-4 h-full w-full object-cover"
             style={{ objectPosition: philippinesData.desktopTopRightObjectPosition }}
           />
@@ -112,7 +112,7 @@ const PhilippinesDesktopHero = () => {
           />
           <img
             src={philippinesData.desktopBottomMiddleImage}
-            alt="Philippines island view"
+            alt="Noah with the Philippines travel group"
             className="order-1 col-span-3 h-full w-full object-cover"
             style={{ objectPosition: philippinesData.desktopBottomMiddleObjectPosition }}
           />

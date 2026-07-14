@@ -1410,7 +1410,7 @@ export const ItineraryTemplate = memo(
       }, 150);
     }, []);
 
-    // Keep the opened day centered on desktop; retain the mobile header offset.
+    // Put the opened day in a readable position below the sticky header.
     const handleAccordionChange = useCallback((value: string) => {
       if (value) {
         setTimeout(() => {
@@ -1418,16 +1418,16 @@ export const ItineraryTemplate = memo(
           const trigger = item?.querySelector("[data-accordion-trigger]") as HTMLElement | null;
           if (!trigger) return;
 
-          const rect = trigger.getBoundingClientRect();
           const desktop = window.matchMedia("(min-width: 768px)").matches;
-          const targetTop = desktop
-            ? window.scrollY + rect.top + rect.height / 2 - window.innerHeight / 2
-            : window.scrollY + rect.top - 150;
+          const targetElement = desktop ? (item as HTMLElement) : trigger;
+          const rect = targetElement.getBoundingClientRect();
+          const offset = desktop ? 96 : 150;
+          const targetTop = window.scrollY + rect.top - offset;
 
           if (Math.abs(window.scrollY - targetTop) > 40) {
             window.scrollTo({ top: Math.max(0, targetTop), behavior: "smooth" });
           }
-        }, 250);
+        }, 350);
       }
     }, []);
 
