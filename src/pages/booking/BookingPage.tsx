@@ -1,6 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import type { Control } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { format } from "date-fns";
@@ -12,6 +13,13 @@ import Footer from "@/components/common/Footer";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogContent,
@@ -104,6 +112,7 @@ const baseSchema = z.object({
   email: z.string().trim().email("Please enter a valid email address").max(255),
   mobile: z.string().trim().min(1, "Mobile number is required").max(30),
   guestCount: z.coerce.number().int().min(1, "Minimum 1 guest").max(10),
+  singleRoomSupplement: z.enum(["no", "yes"]).default("no"),
   termsAccepted: z.literal(true, {
     errorMap: () => ({ message: "You must accept the terms and conditions" }),
   }),
@@ -124,10 +133,7 @@ const passportSchema = z.object({
 type BaseForm = z.infer<typeof baseSchema>;
 type PassportForm = z.infer<typeof passportSchema>;
 
-type BookingFormData = BaseForm &
-  Partial<PassportForm> & {
-    [k: string]: any;
-  };
+type BookingFormData = BaseForm & Partial<PassportForm>;
 
 function parseYMD(value?: string) {
   if (!value) return undefined;
@@ -145,7 +151,7 @@ function DatePickerField(props: {
   label: string;
   placeholder: string;
   name: "passportDateOfBirth" | "passportExpiryDate";
-  control: any;
+  control: Control<BookingFormData>;
   fromYear: number;
   toYear: number;
 }) {
@@ -238,6 +244,7 @@ export default function BookingPage2() {
       email: "",
       mobile: "",
       guestCount: 1,
+      singleRoomSupplement: "no",
       termsAccepted: undefined,
 
       passportFirstNameGivenName: "",
@@ -282,12 +289,18 @@ export default function BookingPage2() {
     setIsSubmitting(true);
     setSubmitError(null);
 
+    const hasSingleRoomSupplement = data.singleRoomSupplement === "yes";
+
     const attributes: Record<string, string> = {
       Trip: config.countryName,
       "Full Name": data.fullName,
       Email: data.email,
       Mobile: data.mobile,
       "Number of Guests": String(data.guestCount ?? 1),
+      "Single Room Supplement": hasSingleRoomSupplement ? "Yes" : "No",
+      "Single Room Supplement Amount": hasSingleRoomSupplement
+        ? "+ $785"
+        : "$0",
       "Terms Accepted": "Yes",
       "Deposit Non-Refundable Acknowledged": "Yes",
     };
@@ -439,6 +452,37 @@ export default function BookingPage2() {
                           {...field}
                           className="h-11"
                         />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="singleRoomSupplement"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Single Room Supplement</FormLabel>
+                      <FormControl>
+                        <Select
+                          onValueChange={field.onChange}
+                          value={field.value ?? "no"}
+                        >
+                          <SelectTrigger className="h-11">
+                            <SelectValue>
+                              {field.value === "yes"
+                                ? "Add single room supplement + $785"
+                                : "No supplement"}
+                            </SelectValue>
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="no">No supplement</SelectItem>
+                            <SelectItem value="yes">
+                              Add single room supplement + $785
+                            </SelectItem>
+                          </SelectContent>
+                        </Select>
                       </FormControl>
                       <FormMessage />
                     </FormItem>

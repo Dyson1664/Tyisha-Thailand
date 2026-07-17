@@ -175,13 +175,13 @@ export const philippinesData = {
     },
     {
       day: 5,
-      title: "Moalboal to Boracay",
+      title: "Moalboal to Boracay & Noah's Birthday Bash",
       location: "Boracay",
       heroImage: phBoracay1,
       description:
-        "Paradise is calling. Today, we travel back to Cebu Airport and catch a short flight to Caticlan, the gateway to Boracay. From there, we hop over to the island and check into our resort, our home for the next three nights. Boracay is famous for powdery white sand, bright blue water, beach clubs, sunsets, and a nightlife scene that does not mess around. Once we are settled in, we will head out to watch the sunset. After that, it is time for a group dinner and a night out for anyone ready to experience Boracay after dark. Want to chill instead? Completely fair. Massage, shower, early night, and no one needs to know.",
+        "Paradise is calling. Today, we travel back to Cebu Airport and catch a short flight to Caticlan, the gateway to Boracay. From there, we hop over to the island and check into our resort, our home for the next three nights. Boracay is famous for powdery white sand, bright blue water, beach clubs, sunsets, and a nightlife scene that does not mess around. Once we are settled in, we will head out to watch the sunset, followed by a group dinner and Noah's Birthday Bash in the evening.",
       meals: "1 breakfast",
-      highlights: "Flight to Caticlan Airport (Boracay), ferry to Boracay",
+      highlights: "Noah's Birthday Bash",
       accommodation: { name: "Commander Suites or similar" },
     },
     {
