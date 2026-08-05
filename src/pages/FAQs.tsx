@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/common/Footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle } from "lucide-react";
+import { tyishaThailandData } from "@/data/countries/tyishaThailand";
 
 const FAQ_ITEMS = [
   {
@@ -70,6 +71,8 @@ const FAQ_ITEMS = [
 
 
 const FAQs = React.memo(() => {
+  const faqItems = tyishaThailandData.faqs.length > 0 ? tyishaThailandData.faqs : FAQ_ITEMS;
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -86,7 +89,7 @@ const FAQs = React.memo(() => {
             Frequently Asked Questions 🤔
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Got questions? We've got answers. Everything you need to know about traveling with Imagine Beyond Travel.
+            Everything you need to know about the Tyeisha Best Of Thailand trip.
           </p>
         </div>
       </section>
@@ -95,7 +98,7 @@ const FAQs = React.memo(() => {
       <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Accordion type="single" collapsible className="space-y-3">
-            {FAQ_ITEMS.map((faq, index) => (
+            {faqItems.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`faq-${index}`}

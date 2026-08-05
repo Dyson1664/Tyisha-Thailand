@@ -9,16 +9,16 @@ export const destinationsData: Record<string, DestinationData> = {
   thailand: {
     country: "Thailand",
     heroImage: thailandHeroImage,
-    heroSubtitle: "10 Days / 9 Nights | Bangkok → Phuket",
+    heroSubtitle: "10 Days | Bangkok → Phuket",
     trips: [
       {
         id: "tyisha-thailand",
         slug: "tyisha-thailand",
-        title: "Bangkok & Phuket Escape",
-        duration: "10 Days / 9 Nights",
+        title: "Tyeisha Best Of Thailand",
+        duration: "10 Days",
         description: "Bangkok, Phuket & Phi Phi Islands",
         image: thailandHeroImage,
-        price: "$2,259",
+        price: "TBD",
         route: "/thailand-itinerary"
       }
     ],

@@ -412,6 +412,7 @@ return (
                         <video
                           ref={(el) => (desktopVideoRefs.current[index] = el)}
                           src={highlight.video}
+                          poster={highlight.image}
                           preload="auto"
                           className="w-full h-full object-cover"
                           style={{ objectPosition: highlight.videoObjectPosition }}
@@ -1565,7 +1566,7 @@ export const ItineraryTemplate = memo(
                   date={day.date}
                   location={day.location || day.title}
                   siteName={day.siteName}
-                  heroImage={day.heroImage || data.heroImage}
+                  heroImage={day.heroImage ?? data.heroImage}
                   description={
                     day.description ||
                     `Experience the wonders of ${day.title} in this unforgettable day of your journey.`
@@ -1788,6 +1789,9 @@ export const ItineraryTemplate = memo(
                 </div>
                 {itineraryContent}
               </div>
+
+              {/* Hotel Section */}
+              <WhereWeStay data={data} />
 
               {/* What's Included Section */}
               <IncludedSection included={data.included} countryName={countryName} />

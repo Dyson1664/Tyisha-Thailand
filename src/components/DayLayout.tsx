@@ -88,11 +88,15 @@ export const DayLayout = memo(({
       <div className="px-4 md:px-10 pt-6">
 
         <div className="relative aspect-[16/9] overflow-hidden rounded-xl shadow-sm">
-          <img
-            src={heroImage}
-            alt={`Day ${dayNumber} - ${location}`}
-            className="w-full h-full object-cover"
-          />
+          {heroImage ? (
+            <img
+              src={heroImage}
+              alt={`Day ${dayNumber} - ${location}`}
+              className="h-full w-full object-cover"
+            />
+          ) : (
+            <div className="absolute inset-0 bg-slate-100" aria-hidden="true" />
+          )}
           {/* Date overlay in top left corner */}
           {date && (
             <div className="absolute top-3 left-3 bg-black/40 backdrop-blur-sm text-white px-2 py-0.5 rounded text-xs font-light tracking-wide">

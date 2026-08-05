@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { CalendarIcon, Clock, MapPin } from "lucide-react";
 import { ItineraryTemplate } from "@/components/ItineraryTemplate";
 import { tyishaThailandData } from "@/data/countries/tyishaThailand";
+import phuketVideo from "@/assets/tyisha-thailand/phuket-vid.mp4";
 
 const TyishaThailandDesktopHero = () => {
   const bookingUrl = tyishaThailandData.slug
@@ -91,39 +92,46 @@ const TyishaThailandDesktopHero = () => {
 
       <div className="mx-auto w-full overflow-hidden rounded-[24px] md:w-[94%] lg:w-[92%] xl:w-[90%]">
         <div className="grid h-[460px] grid-cols-12 grid-rows-2 gap-1 bg-white lg:h-[500px] xl:h-[530px]">
-          <img
-            src={tyishaThailandData.desktopHeroPosterImage}
-            alt="Thailand temple and tropical coast at sunset"
+          <video
+            src={phuketVideo}
+            poster={tyishaThailandData.desktopHeroPosterImage}
             className="col-span-3 row-span-2 h-full w-full object-cover"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
           />
-          <img
-            src={tyishaThailandData.desktopTopMiddleImage}
-            alt="Long-tail boat on the Phuket coast"
-            className="order-2 col-span-5 h-full w-full object-cover"
-            style={{ objectPosition: tyishaThailandData.desktopTopMiddleObjectPosition }}
-          />
-          <img
-            src={tyishaThailandData.desktopTopRightImage}
-            alt="Travellers exploring a Bangkok evening market"
-            className="order-2 col-span-4 h-full w-full object-cover"
-            style={{ objectPosition: tyishaThailandData.desktopTopRightObjectPosition }}
-          />
+          {/* Top row: three smaller images */}
           <img
             src={tyishaThailandData.desktopBottomLeftImage}
-            alt="Tropical beach in southern Thailand"
-            className="order-1 col-span-3 h-full w-full object-cover"
+            alt="Phi Phi Islands"
+            className="col-span-3 h-full w-full object-cover"
           />
           <img
             src={tyishaThailandData.desktopBottomMiddleImage}
-            alt="Bangkok welcome night"
-            className="order-1 col-span-3 h-full w-full object-cover"
+            alt="Wat Arun in Bangkok at dusk"
+            className="col-span-3 h-full w-full object-cover"
             style={{ objectPosition: tyishaThailandData.desktopBottomMiddleObjectPosition }}
           />
           <img
             src={tyishaThailandData.desktopBottomRightImage}
-            alt="Bangkok and Phuket escape"
-            className="order-1 col-span-3 h-full w-full object-cover"
+            alt="Phuket beach and long-tail boats"
+            className="col-span-3 h-full w-full object-cover"
             style={{ objectPosition: tyishaThailandData.desktopBottomRightObjectPosition }}
+          />
+          {/* Bottom row: two wider images */}
+          <img
+            src={tyishaThailandData.desktopTopMiddleImage}
+            alt="Elephants at a Thailand sanctuary"
+            className="col-span-5 h-full w-full object-cover"
+            style={{ objectPosition: tyishaThailandData.desktopTopMiddleObjectPosition }}
+          />
+          <img
+            src={tyishaThailandData.desktopTopRightImage}
+            alt="Long-tail boat on the Phuket coast"
+            className="col-span-4 h-full w-full object-cover"
+            style={{ objectPosition: tyishaThailandData.desktopTopRightObjectPosition }}
           />
         </div>
       </div>
