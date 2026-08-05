@@ -1,3 +1,5 @@
+import bangkokFloatingMarket from "@/assets/tyisha-thailand/bangkok-floating-market.webp";
+import bangkokGrandPalace from "@/assets/tyisha-thailand/bangkok-grand-palace.webp";
 import bangkokWelcomeNight from "@/assets/tyisha-thailand/bangkok-welcome-night.webp";
 import phuketCoast from "@/assets/tyisha-thailand/phuket-coast.webp";
 import thailandHero from "@/assets/tyisha-thailand/thailand-hero.webp";
@@ -67,6 +69,11 @@ export const tyishaThailandData = {
         "Begin the trip at Chillax Resort or a similar 3-star+ Bangkok hotel.",
       images: [bangkokWelcomeNight, thailandHero],
     },
+    {
+      title: "Phuket stay",
+      description: "Ease into island life at The Nature in Phuket.",
+      images: [phuketCoast],
+    },
   ],
   whatsIncludedHighlights: [
     {
@@ -115,6 +122,42 @@ export const tyishaThailandData = {
         "Airport arrival transfer, welcome orientation, group assistance; optional shopping streets, street food, drinks after orientation, and Bangkok nightlife",
       accommodation: { name: "Chillax Resort or similar" },
     },
+    {
+      day: 2,
+      title: "Grand Palace Sightseeing",
+      location: "Bangkok",
+      heroImage: bangkokGrandPalace,
+      description:
+        "Start the day with breakfast, then head out for one of Bangkok’s most iconic cultural experiences. Visit the spectacular Grand Palace, known for its ornate architecture, royal history, golden details, and stunning temple grounds. This is one of Thailand’s most famous landmarks and a beautiful introduction to Bangkok’s rich culture and history. After the Grand Palace visit, the rest of the day is free to relax, explore, shop, try local street food, or enjoy Bangkok at your own pace.",
+      meals: "Breakfast",
+      highlights:
+        "Grand Palace visit and local cultural sightseeing; optional shopping and street food",
+      accommodation: { name: "Chillax Resort or similar" },
+    },
+    {
+      day: 3,
+      title: "Floating Market & Free Evening",
+      location: "Bangkok",
+      heroImage: bangkokFloatingMarket,
+      description:
+        "After breakfast, enjoy a colorful morning at a local floating market. Take in the lively atmosphere as vendors sell fresh fruit, local snacks, souvenirs, and Thai specialties from their boats. After the market visit, the rest of the day is yours to enjoy. Relax at the hotel, explore Bangkok at your own pace, go shopping, visit a rooftop bar, try local street food, or enjoy another fun night out in the city.",
+      meals: "Breakfast",
+      highlights:
+        "Floating market visit and transportation; optional shopping and rooftop bar",
+      accommodation: { name: "Chillax Resort or similar" },
+    },
+    {
+      day: 4,
+      title: "Bangkok to Phuket | Travel Day & Island Arrival",
+      location: "Phuket",
+      heroImage: phuketCoast,
+      description:
+        "After breakfast, check out and fly to Phuket. Upon arrival, check in at your hotel and ease into island mode. Spend the rest of the day relaxing, exploring the beach, browsing local shops, or discovering the Patong area at your own pace. This is a slower travel day, giving you time to settle in, unwind, and enjoy your first taste of Phuket.",
+      meals: "Breakfast",
+      highlights:
+        "Domestic flight to Phuket and transportation; optional beach time, shopping, and Patong exploring",
+      accommodation: { name: "The Nature" },
+    },
   ],
   summary: {
     duration: "10 Days / 9 Nights",
@@ -124,28 +167,38 @@ export const tyishaThailandData = {
   },
   included: [
     {
-      title: "Trip Style & Accommodation",
+      title: "Meals & Accommodation",
       items: [
         { text: "9 nights in 3-star+ hotels" },
-        { text: "Guided group travel with support along the way" },
-        { text: "Free time plus optional adventures" },
+        { text: "Breakfast on Days 2, 3, and 4" },
+        { text: "Chillax Resort or similar in Bangkok" },
+        { text: "The Nature in Phuket from Day 4" },
       ],
     },
     {
-      title: "Day 1 Included",
+      title: "Transport & Group Support",
       items: [
         { text: "Bangkok airport arrival transfer with personal driver" },
-        { text: "Welcome orientation" },
         { text: "Group assistance" },
+        { text: "Floating market transportation" },
+        { text: "Domestic flight and transportation to Phuket" },
       ],
     },
     {
-      title: "Optional Day 1 Experiences",
+      title: "Included Experiences",
       items: [
-        { text: "Explore nearby shopping streets" },
-        { text: "Try Bangkok street food" },
-        { text: "Drinks after orientation" },
-        { text: "Bangkok nightlife" },
+        { text: "Welcome orientation" },
+        { text: "Grand Palace visit" },
+        { text: "Local cultural sightseeing" },
+        { text: "Floating market visit" },
+      ],
+    },
+    {
+      title: "Optional Activities",
+      items: [
+        { text: "Shopping, street food, drinks, and Bangkok nightlife" },
+        { text: "Rooftop bar" },
+        { text: "Beach time and Patong exploring" },
       ],
     },
   ],
