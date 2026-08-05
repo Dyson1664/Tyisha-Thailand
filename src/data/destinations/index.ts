@@ -18,7 +18,7 @@ export const destinationsData: Record<string, DestinationData> = {
         duration: "10 Days / 9 Nights",
         description: "Bangkok, Phuket & Phi Phi Islands",
         image: thailandHeroImage,
-        price: "Coming soon",
+        price: "$2,259",
         route: "/thailand-itinerary"
       }
     ],
