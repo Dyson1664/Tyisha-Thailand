@@ -114,6 +114,7 @@ interface CountryData {
   priceNote?: string;
   ctaLabel?: string;
   soldOut?: boolean;
+  bookingStatus?: "open" | "coming-soon";
   startDate?: string;
   overviewGallery?: string[];
   overviewGallery2x?: (string | null)[]; // <-- new optional gallery for hero left grid
@@ -1360,6 +1361,7 @@ const FAQSection = memo(
 
 const StickyBookingCard = memo(({ data }: { data: CountryData }) => {
   const bookingUrl = getBookingUrlBySlug(data.slug);
+  const bookingComingSoon = data.bookingStatus === "coming-soon";
 
   return (
     <div className="hidden lg:block w-80 flex-shrink-0">
@@ -1376,7 +1378,14 @@ const StickyBookingCard = memo(({ data }: { data: CountryData }) => {
           </div>
 
           <div className="space-y-1">
-            {data.soldOut ? (
+            {bookingComingSoon ? (
+              <div className="rounded-2xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-3 shadow-[0_18px_40px_-24px_rgba(15,194,191,0.45)]">
+                <p className="text-base font-bold text-slate-800">Pricing coming soon</p>
+                <p className="mt-1 text-sm leading-5 text-slate-600">
+                  Dates and trip details are available now. Booking information will follow.
+                </p>
+              </div>
+            ) : data.soldOut ? (
               <div className="rounded-2xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-3 shadow-[0_18px_40px_-24px_rgba(15,194,191,0.45)]">
                 <div className="flex items-start justify-between gap-3">
                   <p className="text-base font-bold text-slate-800">Sold Out</p>
@@ -1418,7 +1427,15 @@ const StickyBookingCard = memo(({ data }: { data: CountryData }) => {
             )}
           </div>
 
-          {data.soldOut ? null : bookingUrl === "#" ? (
+          {bookingComingSoon ? (
+            <Button
+              size="default"
+              className="h-auto w-full cursor-not-allowed rounded-xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-3 text-slate-700 disabled:opacity-100"
+              disabled
+            >
+              Booking Coming Soon
+            </Button>
+          ) : data.soldOut ? null : bookingUrl === "#" ? (
             <Button
               size="default"
               className="h-auto w-full rounded-2xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-3 text-slate-700 shadow-[0_18px_40px_-24px_rgba(15,194,191,0.45)] cursor-not-allowed disabled:opacity-100"
@@ -1810,8 +1827,17 @@ export const ItineraryTemplate = memo(
 {/* Mobile Sticky Booking Bar */}
 <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 px-4 py-1 shadow-lg">
   <div className="flex items-center justify-between gap-4">
-    <div className={`${data.soldOut ? "w-full" : ""} flex flex-col leading-tight space-y-0.5`}>
-      {data.soldOut ? (
+    <div className={`${data.soldOut || data.bookingStatus === "coming-soon" ? "w-full" : ""} flex flex-col leading-tight space-y-0.5`}>
+      {data.bookingStatus === "coming-soon" ? (
+        <div className="rounded-2xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-2">
+          <span className="block text-[13px] font-bold leading-4 text-slate-800">
+            Booking coming soon
+          </span>
+          <span className="block text-[10px] leading-4 text-slate-600">
+            April 15th or 22nd • 10 days
+          </span>
+        </div>
+      ) : data.soldOut ? (
         <div className="rounded-2xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-2 shadow-[0_18px_40px_-24px_rgba(15,194,191,0.45)]">
           <div className="flex items-start justify-between gap-3">
             <span className="text-[13px] font-bold leading-4 text-slate-800">
@@ -1857,6 +1883,10 @@ export const ItineraryTemplate = memo(
 
     {(() => {
       const bookingUrl = getBookingUrlBySlug(data.slug);
+
+      if (data.bookingStatus === "coming-soon") {
+        return null;
+      }
 
       if (data.soldOut) {
         return null;

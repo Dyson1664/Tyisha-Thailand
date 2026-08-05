@@ -1,27 +1,27 @@
-import philippinesHeroImage from "@/assets/PH East/desktop_turtle.webp";
+import thailandHeroImage from "@/assets/tyisha-thailand/thailand-hero.webp";
 
-import { philippinesData } from "@/data/countries/philippines";
+import { tyishaThailandData } from "@/data/countries/tyishaThailand";
 import { DestinationData, ItineraryData } from "@/data/types";
 
 export type { Trip, DestinationData, ItineraryData } from "@/data/types";
 
 export const destinationsData: Record<string, DestinationData> = {
-  philippines: {
-    country: "Philippines",
-    heroImage: philippinesHeroImage,
-    heroSubtitle: "8 Days | Cebu → Moalboal → Boracay",
+  thailand: {
+    country: "Thailand",
+    heroImage: thailandHeroImage,
+    heroSubtitle: "10 Days / 9 Nights | Bangkok → Phuket",
     trips: [
       {
-        id: "philippines-island-explorer",
-        slug: "philippines",
-        title: "Philippines Island Explorer",
-        duration: "8 Days",
-        description: "8 Days | Cebu → Moalboal → Boracay",
-        image: philippinesHeroImage,
-        price: "$2,259",
-        route: "/philippines-itinerary"
+        id: "tyisha-thailand",
+        slug: "tyisha-thailand",
+        title: "Bangkok & Phuket Escape",
+        duration: "10 Days / 9 Nights",
+        description: "Bangkok, Phuket & Phi Phi Islands",
+        image: thailandHeroImage,
+        price: "Coming soon",
+        route: "/thailand-itinerary"
       }
     ],
-    itinerary: philippinesData
+    itinerary: tyishaThailandData
   }
 };
