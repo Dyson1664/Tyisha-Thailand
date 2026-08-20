@@ -110,7 +110,7 @@ const TyishaThailandDesktopHero = () => {
           />
           <img
             src={tyishaThailandData.desktopBottomMiddleImage}
-            alt="Wat Arun in Bangkok at dusk"
+            alt="Tyisha relaxing by a pool with a coconut"
             className="col-span-3 h-full w-full object-cover"
             style={{ objectPosition: tyishaThailandData.desktopBottomMiddleObjectPosition }}
           />
@@ -129,7 +129,7 @@ const TyishaThailandDesktopHero = () => {
           />
           <img
             src={tyishaThailandData.desktopTopRightImage}
-            alt="Long-tail boat on the Phuket coast"
+            alt="Tyisha watching the sunset from a beach"
             className="col-span-4 h-full w-full object-cover"
             style={{ objectPosition: tyishaThailandData.desktopTopRightObjectPosition }}
           />

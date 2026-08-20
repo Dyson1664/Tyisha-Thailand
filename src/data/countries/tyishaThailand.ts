@@ -8,8 +8,8 @@ import phiPhiImage from "@/assets/tyisha-thailand/phi-phi.avif";
 import day8Image from "@/assets/tyisha-thailand/day-8.jpg";
 import massageThailandImage from "@/assets/tyisha-thailand/massage-thailand.jpg";
 import day10Image from "@/assets/tyisha-thailand/day-10.jpg";
-import desktop4Image from "@/assets/tyisha-thailand/desktop4-image.jpg";
-import desktop2Image from "@/assets/tyisha-thailand/desktop-2.jpg";
+import tyisha1Image from "@/assets/tyisha-thailand/tyisha1.jpg";
+import tyisha2Image from "@/assets/tyisha-thailand/tyisha-2.jpg";
 import desktop6Image from "@/assets/tyisha-thailand/desktop-6.jpg";
 import bangkokVideo from "@/assets/tyisha-thailand/bangkok_video.mp4";
 import phuketVideo from "@/assets/tyisha-thailand/phuket-vid.mp4";
@@ -44,15 +44,15 @@ export const tyishaThailandData = {
   price: "TBD",
   priceOriginal: "TBD",
   priceNote: "Final trip price will be confirmed.",
-  ctaLabel: "$600 Deposit",
-  heroImage: thailandHero,
+  ctaLabel: "$400 Deposit",
+  heroImage: tyisha1Image,
   desktopHeroPosterImage: thailandHero,
   desktopTopMiddleImage: day6Image,
   desktopTopMiddleObjectPosition: "center center",
-  desktopTopRightImage: desktop4Image,
+  desktopTopRightImage: tyisha1Image,
   desktopTopRightObjectPosition: "center center",
   desktopBottomLeftImage: phiPhiImage,
-  desktopBottomMiddleImage: desktop2Image,
+  desktopBottomMiddleImage: tyisha2Image,
   desktopBottomMiddleObjectPosition: "center center",
   desktopBottomRightImage: desktop6Image,
   desktopBottomRightObjectPosition: "center center",
@@ -89,17 +89,20 @@ export const tyishaThailandData = {
   accommodations: [
     {
       title: "Chillax Resort",
-      description: "Your 4-star Bangkok stay.",
+      description:
+        "A stylish 4-star Bangkok retreat with comfortable rooms and a rooftop pool.",
       images: [chillaxPool, chillaxRoom, chillaxAtrium, chillaxTerrace, chillaxGym],
     },
     {
       title: "The Nature Phuket",
-      description: "Your 4-star Phuket stay.",
+      description:
+        "A peaceful 5-star Phuket resort with modern rooms and inviting tropical pools.",
       images: [naturePool, natureRoom, natureAerialPool, natureGym],
     },
     {
       title: "Coco Bella Resort",
-      description: "Your Phi Phi Islands stay.",
+      description:
+        "A laid-back island stay with comfortable rooms and Phi Phi's beaches close by.",
       images: [phiPhiHotelPool, phiPhiHotelRoom],
     },
   ],
