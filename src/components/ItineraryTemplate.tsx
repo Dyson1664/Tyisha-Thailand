@@ -1264,7 +1264,12 @@ const PaymentPlansSection = memo(
             )}
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div
+            className={
+              "grid gap-6 " +
+              (plans.length === 1 ? "mx-auto max-w-2xl" : "md:grid-cols-2")
+            }
+          >
             {plans.map((plan) => (
               <article
                 key={plan.title}

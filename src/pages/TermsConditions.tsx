@@ -11,7 +11,7 @@ const TERMS_SECTIONS = [
     type: "paragraphs",
     content: [
       "These Terms & Conditions apply to all tours operated by Imagine Beyond Travel / IBT Tours (\"IBT\"). IBT Tours (Imagine Beyond Travel) is the tour operator, merchant of record, and sole contracting party.",
-      "By booking a tour, you enter into a legally binding contract with IBT Tours. Payment of any booking fee, deposit, or balance confirms you have read, understood, and agreed to these Terms & Conditions in full.",
+      "By booking Tyeisha's Best of Thailand Trip, scheduled for April 15th through April 24th, 2027, you enter into a legally binding contract with IBT Tours. Payment of any booking fee, deposit, or balance confirms you have read, understood, and agreed to these Terms & Conditions in full.",
       "Only these Terms & Conditions, your booking confirmation, and the published tour inclusions/exclusions form part of your contract. Social media posts, community content, or verbal statements do not form part of the contract unless confirmed in writing by IBT.",
     ],
   },
@@ -20,9 +20,10 @@ const TERMS_SECTIONS = [
     content: [
       "The person making the booking (the \"Lead Booker\") confirms they have authority to accept these Terms on behalf of all participants and accepts financial responsibility for the booking.",
       "IBT Tours (Imagine Beyond Travel) is the merchant of record and processes payments via Shopify Payments or authorized processors.",
-      "A $400 USD deposit (or booking fee where applicable) is required to secure your place. All deposits and all balance payments are strictly non-refundable.",
+      "The published price for Tyeisha's Best of Thailand Trip is $2,549 USD. A $400 USD deposit is required to secure your place and will be applied toward the total trip balance. All deposits and all balance payments are strictly non-refundable.",
       "Any payment made toward the tour (including deposits and installments) is non-refundable and forfeited in the event of cancellation by the traveler, no-show, late arrival, early departure, or failure to meet entry, passport, visa, or health requirements.",
-      "The remaining balance must be paid in full no later than 30 days before the trip start date. Failure to pay may result in cancellation with all amounts forfeited.",
+      "After the initial $400 USD deposit, the remaining $2,149 USD balance is payable in two equal installments of $1,074.50 USD. The first balance payment is due November 5, 2026, and the final balance payment is due February 5, 2027. Failure to pay by either deadline may result in cancellation with all amounts forfeited.",
+      "The optional single-room supplement is $700 USD and is due with the first balance payment. When selected, the first balance payment is $1,774.50 USD and the total trip price is $3,249 USD.",
       "All prices are quoted and charged in United States Dollars (USD).",
       "All participants must be 18 years of age or older at the time of booking.",
     ],
@@ -164,9 +165,11 @@ const TermsConditions = React.memo(() => {
               <Scale className="w-12 h-12 text-primary" />
             </div>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Terms & Conditions</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Tyeisha's Thailand Trip Terms & Conditions
+          </h1>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
-            Updated 2026 · Last Updated: January 2026
+            April 15th–24th, 2027 · Last updated: August 24, 2026
           </p>
         </div>
       </section>
@@ -177,8 +180,10 @@ const TermsConditions = React.memo(() => {
           <div className="bg-card border rounded-lg p-8 flex gap-3">
             <AlertCircle className="w-6 h-6 text-primary mt-1" />
             <p className="text-muted-foreground leading-relaxed">
-              These Terms & Conditions apply to all tours operated by IBT Tours (Imagine Beyond Travel).
-              Please read carefully before booking. Deposits and balance payments are strictly non-refundable.
+              These Terms & Conditions apply specifically to Tyeisha's Best of
+              Thailand Trip operated by IBT Tours (Imagine Beyond Travel).
+              Please read carefully before booking. Deposits and balance
+              payments are strictly non-refundable.
             </p>
           </div>
         </div>

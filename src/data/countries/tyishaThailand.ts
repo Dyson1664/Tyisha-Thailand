@@ -40,10 +40,8 @@ export const tyishaThailandData = {
   subtitle: "10 Days | Bangkok → Phuket",
   location: "Thailand",
   duration: "10 Days",
-  startDate: "TBD",
-  price: "TBD",
-  priceOriginal: "TBD",
-  priceNote: "Final trip price will be confirmed.",
+  startDate: "April 15th - 24th, 2027",
+  price: "$2,549",
   ctaLabel: "$400 Deposit",
   heroImage: tyisha1Image,
   desktopHeroPosterImage: thailandHero,
@@ -88,19 +86,19 @@ export const tyishaThailandData = {
   ],
   accommodations: [
     {
-      title: "Chillax Resort",
+      title: "Chillax Resort or similar",
       description:
         "A stylish 4-star Bangkok retreat with comfortable rooms and a rooftop pool.",
       images: [chillaxPool, chillaxRoom, chillaxAtrium, chillaxTerrace, chillaxGym],
     },
     {
-      title: "The Nature Phuket",
+      title: "The Nature Phuket or similar",
       description:
         "A peaceful 5-star Phuket resort with modern rooms and inviting tropical pools.",
       images: [naturePool, natureRoom, natureAerialPool, natureGym],
     },
     {
-      title: "Coco Bella Resort",
+      title: "Coco Bella Resort or similar",
       description:
         "A laid-back island stay with comfortable rooms and Phi Phi's beaches close by.",
       images: [phiPhiHotelPool, phiPhiHotelRoom],
@@ -182,7 +180,7 @@ export const tyishaThailandData = {
       description:
         "After breakfast, check out and fly to Phuket. Upon arrival, check in at your hotel and ease into island mode. Spend the rest of the day relaxing, exploring the beach, browsing local shops, or discovering the Patong area at your own pace. This is a slower travel day, giving you time to settle in, unwind, and enjoy your first taste of Phuket.",
       meals: "Breakfast",
-      accommodation: { name: "The Nature" },
+      accommodation: { name: "The Nature Phuket or similar" },
     },
     {
       day: 5,
@@ -193,7 +191,7 @@ export const tyishaThailandData = {
         "Get ready for an action-packed morning in Phuket. Begin the day with an exciting ATV adventure, riding through scenic jungle trails and rugged terrain. Continue with a thrilling zipline experience before visiting the iconic Big Buddha viewpoint, where you can enjoy panoramic views across the island. Around midday, return to the hotel and enjoy free time for lunch, relaxation, or a refreshing swim. Later in the afternoon, come together for a fun and interactive Thai cooking class. Learn about traditional ingredients, local flavors, and authentic cooking techniques as you prepare a selection of delicious Thai dishes to enjoy together.",
       meals: "Breakfast, Dinner",
       highlights: "ATV adventure, zipline, Big Buddha visit, and Thai cooking class",
-      accommodation: { name: "The Nature" },
+      accommodation: { name: "The Nature Phuket or similar" },
     },
     {
       day: 6,
@@ -204,7 +202,7 @@ export const tyishaThailandData = {
         "Enjoy a relaxed morning with breakfast, extra sleep, and time to chill. No rush today. In the afternoon, visit an Elephant Jungle Sanctuary experience in Phuket. Spend meaningful time learning about elephants, their care, and their stories in a jungle setting. This is a beautiful and memorable way to connect with Thailand’s wildlife. After returning to the hotel, enjoy a free evening in Phuket. Relax, go for dinner, explore the area, or enjoy a fun night out.",
       meals: "Breakfast",
       highlights: "Elephant Jungle Sanctuary experience",
-      accommodation: { name: "The Nature" },
+      accommodation: { name: "The Nature Phuket or similar" },
     },
     {
       day: 7,
@@ -227,7 +225,7 @@ export const tyishaThailandData = {
         "Wake up on Phi Phi Island and enjoy a relaxed morning with beautiful tropical views. After breakfast, enjoy free time to visit a viewpoint or explore the island at your own pace. Around midday, take the ferry back to Phuket, check back into the hotel, and enjoy a chilled afternoon by the pool, at the beach, or exploring nearby shops.",
       meals: "Breakfast",
       highlights: "Phi Phi viewpoint hike",
-      accommodation: { name: "The Nature" },
+      accommodation: { name: "The Nature Phuket or similar" },
     },
     {
       day: 9,
@@ -239,7 +237,7 @@ export const tyishaThailandData = {
       meals: "Breakfast, Farewell Dinner",
       highlights:
         "Spa, massage, and beauty treatment day, farewell dinner, and final night out",
-      accommodation: { name: "The Nature" },
+      accommodation: { name: "The Nature Phuket or similar" },
     },
     {
       day: 10,
@@ -295,10 +293,24 @@ export const tyishaThailandData = {
       ],
     },
   ],
+  paymentPlanDescription:
+    "Secure your place with a $400 non-refundable deposit. The remaining $2,149 balance is split into two equal payments.",
+  paymentPlans: [
+    {
+      title: "Tyeisha's Thailand Trip",
+      price: "$2,549",
+      payments: [
+        { label: "Deposit at booking", amount: "$400" },
+        { label: "First balance payment due November 5, 2026", amount: "$1,074.50" },
+        { label: "Final balance payment due February 5, 2027", amount: "$1,074.50" },
+      ],
+      note: "Optional single room: add the $700 supplement to the first balance payment, making that payment $1,774.50 and the total trip price $3,249.",
+    },
+  ],
   faqs: [
     {
       question: "When does the tour start?",
-      answer: "The tour start date is TBD and will be confirmed with the complete booking details.",
+      answer: "The tour runs from April 15th through April 24th, 2027.",
     },
     {
       question: "How long is the trip and what is the route?",

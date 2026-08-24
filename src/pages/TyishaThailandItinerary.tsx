@@ -51,10 +51,6 @@ const TyishaThailandDesktopHero = () => {
                 <CalendarIcon className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
                 <span className="font-playfair">{tyishaThailandData.startDate}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-[#0fc2bf] lg:h-5 lg:w-5" />
-                <span className="font-playfair">Thailand</span>
-              </div>
             </div>
           </div>
 

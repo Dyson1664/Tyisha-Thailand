@@ -21,14 +21,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import {
   Form,
   FormControl,
   FormField,
@@ -60,6 +52,9 @@ const BOOKING_CONFIG: Record<
     variantId?: string;
     requiresPassport: boolean;
     shopifyDomain: string;
+    depositAmount: number;
+    singleRoomSupplementAmount?: number;
+    tripDates?: string;
   }
 > = {
   philippines: {
@@ -68,8 +63,23 @@ const BOOKING_CONFIG: Record<
     variantId: "45568665518259",
     requiresPassport: false,
     shopifyDomain: "tbff.imaginebeyondtravel.com",
+    depositAmount: 650,
+    singleRoomSupplementAmount: 785,
+  },
+  "tyisha-thailand": {
+    countryName: "Tyeisha Best Of Thailand",
+    productHandle: "thailand-deposit",
+    variantId: "45892468113587",
+    requiresPassport: false,
+    shopifyDomain: "tbff.imaginebeyondtravel.com",
+    depositAmount: 400,
+    singleRoomSupplementAmount: 700,
+    tripDates: "April 15th - 24th, 2027",
   },
 };
+
+const formatUsdAmount = (amount: number) =>
+  "$" + amount.toLocaleString("en-US");
 
 function buildShopifyProductUrl(params: {
   shopifyDomain: string;
@@ -221,8 +231,6 @@ export default function BookingPage2() {
   const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
-  const [acknowledgementOpen, setAcknowledgementOpen] = useState(false);
-  const [pendingBookingData, setPendingBookingData] = useState<BookingFormData | null>(null);
 
 
   useEffect(() => {
@@ -289,7 +297,9 @@ export default function BookingPage2() {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const hasSingleRoomSupplement = data.singleRoomSupplement === "yes";
+    const hasSingleRoomSupplement =
+      Boolean(config.singleRoomSupplementAmount) &&
+      data.singleRoomSupplement === "yes";
 
     const attributes: Record<string, string> = {
       Trip: config.countryName,
@@ -297,13 +307,22 @@ export default function BookingPage2() {
       Email: data.email,
       Mobile: data.mobile,
       "Number of Guests": String(data.guestCount ?? 1),
-      "Single Room Supplement": hasSingleRoomSupplement ? "Yes" : "No",
-      "Single Room Supplement Amount": hasSingleRoomSupplement
-        ? "+ $785"
-        : "$0",
       "Terms Accepted": "Yes",
       "Deposit Non-Refundable Acknowledged": "Yes",
     };
+
+    if (config.tripDates) {
+      attributes["Trip Dates"] = config.tripDates;
+    }
+
+    if (config.singleRoomSupplementAmount) {
+      attributes["Single Room Supplement"] = hasSingleRoomSupplement
+        ? "Yes"
+        : "No";
+      attributes["Single Room Supplement Amount"] = hasSingleRoomSupplement
+        ? "+ " + formatUsdAmount(config.singleRoomSupplementAmount)
+        : "$0";
+    }
 
     if (config.requiresPassport) {
       attributes["Passport First Name / Given Name"] =
@@ -333,20 +352,13 @@ export default function BookingPage2() {
     window.location.href = destinationUrl;
   };
 
-  const onSubmit = async (data: BookingFormData) => {
+  const onSubmit = (data: BookingFormData) => {
     if (!PAYMENTS_ENABLED) {
       setIsSubmitting(false);
       return;
     }
 
-    setPendingBookingData(data);
-    setAcknowledgementOpen(true);
-  };
-
-  const handleDepositAcknowledgement = () => {
-    if (!pendingBookingData) return;
-    setAcknowledgementOpen(false);
-    continueToShopify(pendingBookingData);
+    continueToShopify(data);
   };
 
   const paymentDisabled = !PAYMENTS_ENABLED;
@@ -369,18 +381,6 @@ export default function BookingPage2() {
           <div className="bg-card rounded-xl border border-border p-6 sm:p-8 shadow-sm">
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-                <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
-                  <p className="text-sm font-semibold text-foreground">
-                    Payment Plan
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground leading-relaxed">
-                    Secure your spot with a non-refundable $650 USD deposit,
-                    then complete your remaining balance in 2 installments: a
-                    first balance payment due October 31, 2026, then the final
-                    balance payment due January 31, 2027.
-                  </p>
-                </div>
-
                 <FormField
                   control={form.control}
                   name="fullName"
@@ -458,36 +458,40 @@ export default function BookingPage2() {
                   )}
                 />
 
-                <FormField
-                  control={form.control}
-                  name="singleRoomSupplement"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>Single Room Supplement</FormLabel>
-                      <FormControl>
-                        <Select
-                          onValueChange={field.onChange}
-                          value={field.value ?? "no"}
-                        >
-                          <SelectTrigger className="h-11">
-                            <SelectValue>
-                              {field.value === "yes"
-                                ? "Add single room supplement + $785"
-                                : "No supplement"}
-                            </SelectValue>
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="no">No supplement</SelectItem>
-                            <SelectItem value="yes">
-                              Add single room supplement + $785
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                {config.singleRoomSupplementAmount ? (
+                  <FormField
+                    control={form.control}
+                    name="singleRoomSupplement"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Single Room Supplement</FormLabel>
+                        <FormControl>
+                          <Select
+                            onValueChange={field.onChange}
+                            value={field.value ?? "no"}
+                          >
+                            <SelectTrigger className="h-11">
+                              <SelectValue>
+                                {field.value === "yes"
+                                  ? "Add single room supplement + " +
+                                    formatUsdAmount(config.singleRoomSupplementAmount)
+                                  : "No supplement"}
+                              </SelectValue>
+                            </SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="no">No supplement</SelectItem>
+                              <SelectItem value="yes">
+                                Add single room supplement +{" "}
+                                {formatUsdAmount(config.singleRoomSupplementAmount)}
+                              </SelectItem>
+                            </SelectContent>
+                          </Select>
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                ) : null}
 
 
                 {config.requiresPassport && (
@@ -612,7 +616,7 @@ export default function BookingPage2() {
                     ? "Payments Opening Soon"
                     : isSubmitting
                     ? "Redirecting..."
-                    : "Pay $650 Deposit"}
+                    : "Pay " + formatUsdAmount(config.depositAmount) + " Deposit"}
                 </Button>
 
                 {!paymentDisabled ? (
@@ -643,52 +647,6 @@ export default function BookingPage2() {
           </div>
         </div>
       </main>
-
-      <Dialog open={acknowledgementOpen} onOpenChange={setAcknowledgementOpen}>
-        <DialogContent className="w-[calc(100vw-3rem)] max-w-xs overflow-hidden border-primary/20 p-0 sm:max-w-sm">
-          <div className="border-b border-primary/15 bg-primary/10 px-4 py-3 sm:px-5 sm:py-4">
-            <DialogHeader className="space-y-1 text-left">
-              <DialogTitle className="text-base font-semibold text-foreground sm:text-lg">
-                Deposit Confirmation
-              </DialogTitle>
-              <DialogDescription className="text-xs text-muted-foreground sm:text-sm">
-                Before continuing to payment, please confirm the following:
-              </DialogDescription>
-            </DialogHeader>
-          </div>
-
-          <div className="space-y-3 px-4 py-3 sm:px-5 sm:py-4">
-            <p className="text-xs leading-relaxed text-foreground sm:text-sm">
-              Your $650 USD deposit reserves your place on the trip and will be
-              applied toward your total trip balance.
-            </p>
-            <p className="text-xs leading-relaxed text-foreground sm:text-sm">
-              I understand that deposits are non-refundable once paid.
-            </p>
-          </div>
-
-          <DialogFooter className="gap-2 border-t bg-muted/20 px-4 py-3 sm:gap-2 sm:px-5">
-            <Button
-              type="button"
-              variant="outline"
-              size="sm"
-              onClick={() => setAcknowledgementOpen(false)}
-              disabled={isSubmitting}
-            >
-              Go Back
-            </Button>
-            <Button
-              type="button"
-              size="sm"
-              onClick={handleDepositAcknowledgement}
-              disabled={isSubmitting}
-              className="bg-primary text-primary-foreground hover:bg-primary/90"
-            >
-              Confirm & Continue to Payment
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
 
       <Footer />
     </div>
