@@ -4,24 +4,25 @@ import bangkokWelcomeNight from "@/assets/tyisha-thailand/bangkok-welcome-night.
 import phuketCoast from "@/assets/tyisha-thailand/phuket-coast.webp";
 import day6Image from "@/assets/tyisha-thailand/day6.webp";
 import phiPhiImage from "@/assets/tyisha-thailand/phi-phi.avif";
-import day8Image from "@/assets/tyisha-thailand/day-8.jpg";
-import bigBuddhaImage from "@/assets/tyisha-thailand/big buddha.jpg";
-import day10Image from "@/assets/tyisha-thailand/day-10.jpg";
-import min1Image from "@/assets/tyisha-thailand/min-1.jpg";
-import min2Image from "@/assets/tyisha-thailand/min2.jpg";
-import desktop6Image from "@/assets/tyisha-thailand/desktop-6.jpg";
+import day8Image from "@/assets/tyisha-thailand/day-8.webp";
+import bigBuddhaImage from "@/assets/tyisha-thailand/big buddha.webp";
+import day10Image from "@/assets/tyisha-thailand/day-10.webp";
+import min2Image from "@/assets/tyisha-thailand/min2.webp";
+import desktop6Image from "@/assets/tyisha-thailand/desktop-6.webp";
 import bangkokVideo from "@/assets/tyisha-thailand/bangkok_video.mp4";
 import phuketVideo from "@/assets/tyisha-thailand/phuket-vid.mp4";
 import thailandHero from "@/assets/tyisha-thailand/thailand-hero.webp";
-import chillaxPool from "@/assets/tyisha-thailand/hotels/505656779.jpg";
-import chillaxGym from "@/assets/tyisha-thailand/hotels/766048977.jpg";
-import chillaxAtrium from "@/assets/tyisha-thailand/hotels/766048971.jpg";
-import chillaxRoom from "@/assets/tyisha-thailand/hotels/766048876.jpg";
-import chillaxTerrace from "@/assets/tyisha-thailand/hotels/766049027.jpg";
-import andakiraPool from "@/assets/tyisha-thailand/hotels/hotel-1.jpg";
-import andakiraRoom from "@/assets/tyisha-thailand/hotels/hotel-2.jpg";
-import phiPhiHotelPool from "@/assets/tyisha-thailand/hotels/phi phi-1.jpg";
-import phiPhiHotelRoom from "@/assets/tyisha-thailand/hotels/phi phi-2.jpg";
+import chillaxPool from "@/assets/tyisha-thailand/hotels/505656779.webp";
+import chillaxGym from "@/assets/tyisha-thailand/hotels/766048977.webp";
+import chillaxAtrium from "@/assets/tyisha-thailand/hotels/766048971.webp";
+import chillaxRoom from "@/assets/tyisha-thailand/hotels/766048876.webp";
+import chillaxTerrace from "@/assets/tyisha-thailand/hotels/766049027.webp";
+import andakiraPool from "@/assets/tyisha-thailand/hotels/hotel-1.webp";
+import andakiraRoom from "@/assets/tyisha-thailand/hotels/hotel-2.webp";
+import phuketHotelRoom from "@/assets/tyisha-thailand/hotels/phuket-1.webp";
+import phuketHotelPool from "@/assets/tyisha-thailand/hotels/phuket-2.webp";
+import phiPhiHotelPool from "@/assets/tyisha-thailand/hotels/phi phi-1.webp";
+import phiPhiHotelRoom from "@/assets/tyisha-thailand/hotels/phi phi-2.webp";
 import {
   Home,
   Plane,
@@ -43,7 +44,7 @@ export const tyishaThailandData = {
   priceNote: "$100 early-bird discount for the first 6 bookings.",
   ctaLabel: "$400 Deposit",
   bookingDisabled: true,
-  heroImage: min1Image,
+  heroImage: "/min-1.webp",
   desktopHeroPosterImage: thailandHero,
   desktopTopMiddleImage: day6Image,
   desktopTopMiddleObjectPosition: "center center",
@@ -102,6 +103,12 @@ export const tyishaThailandData = {
       description:
         "A laid-back island stay with comfortable rooms and Phi Phi's beaches close by.",
       images: [phiPhiHotelPool, phiPhiHotelRoom],
+    },
+    {
+      title: "AIMs Hotel Phuket or similar",
+      description:
+        "A comfortable Phuket stay with modern rooms, an inviting pool, and easy access to Patong.",
+      images: [phuketHotelRoom, phuketHotelPool],
     },
   ],
   whatsIncludedHighlights: [
@@ -181,7 +188,7 @@ export const tyishaThailandData = {
         "After breakfast, it’s time to trade Bangkok’s city lights for Phuket’s tropical beaches. Check out and head to the airport for your included domestic flight to Phuket. Upon arrival, transfer to the hotel, check in, and enjoy some free time to settle into island life. Explore Patong, hit the beach, browse the shops, grab a drink, or relax by the pool. In the evening, come together for a fun Thai cooking class. Learn how to prepare authentic dishes, discover local ingredients and flavors, and then sit down to enjoy the meal you helped create.",
       meals: "Breakfast, Dinner",
       highlights: "Included flight to Phuket and Thai cooking class",
-      accommodation: { name: "AIMs Hotel Phuket or similar" },
+      accommodation: { name: "Andakira Hotel – SHA Extra Plus or similar" },
     },
     {
       day: 5,
@@ -192,7 +199,7 @@ export const tyishaThailandData = {
         "No early rush today. Enjoy breakfast, sleep in a little, grab a coffee, or relax by the pool before heading out for one of the most memorable experiences of the trip. Visit an Elephant Jungle Sanctuary, where you’ll spend time learning about the elephants, their care, personalities, and stories in a beautiful jungle setting and feeding them. The evening is free to explore Phuket, walk along the beach, go shopping, head out for drinks, or simply relax.",
       meals: "Breakfast",
       highlights: "Elephant Jungle Sanctuary visit and elephant feeding",
-      accommodation: { name: "AIMs Hotel Phuket or similar" },
+      accommodation: { name: "Andakira Hotel – SHA Extra Plus or similar" },
     },
     {
       day: 6,
@@ -215,7 +222,7 @@ export const tyishaThailandData = {
         "Wake up in paradise and enjoy breakfast before heading to the famous Phi Phi Viewpoint. Make your way up to one of the island’s best photo spots and take in incredible panoramic views across Phi Phi’s turquoise bays, beaches and dramatic limestone scenery. Afterward, return to the hotel, collect your bags and say goodbye to Phi Phi. Board the ferry back to Phuket, arriving during the afternoon. From the ferry terminal, you’ll be transferred to your hotel, where the remainder of the day is yours to relax and enjoy Phuket at your own pace.",
       meals: "Breakfast",
       highlights: "Phi Phi Viewpoint and ferry back to Phuket",
-      accommodation: { name: "Andakira Hotel – SHA Extra Plus or similar" },
+      accommodation: { name: "AIMs Hotel Phuket or similar" },
     },
     {
       day: 8,
@@ -226,7 +233,7 @@ export const tyishaThailandData = {
         "Today is completely yours. Sleep in, enjoy a relaxed breakfast and spend your final full day in Thailand exactly how you want. Head to the beach, shop for souvenirs, explore Phuket, spend the afternoon by the pool or treat yourself to a Thai massage or spa experience. There are no scheduled daytime activities, giving you plenty of time to relax and enjoy Phuket at your own pace. In the evening, come together one final time for an included farewell dinner and celebrate an incredible Thailand adventure.",
       meals: "Breakfast, Farewell Dinner",
       highlights: "Full free day and included farewell dinner",
-      accommodation: { name: "Andakira Hotel – SHA Extra Plus or similar" },
+      accommodation: { name: "AIMs Hotel Phuket or similar" },
     },
     {
       day: 9,

@@ -1629,8 +1629,8 @@ export const ItineraryTemplate = memo(
                 mobileHeroVideoReady ? "opacity-0" : "opacity-100"
               }`}
               loading="eager"
-              fetchpriority="high"
-              decoding="async"
+              fetchPriority="high"
+              decoding="sync"
             />
             {data.desktopHeroVideo && (
               <video
