@@ -143,7 +143,7 @@ export const tyishaThailandData = {
       icon: UtensilsCrossed,
       title: "MEALS",
       description:
-        "Daily breakfasts, Thai cooking-class dinner, Phi Phi Island boat-tour lunch, and farewell dinner.",
+        "Daily breakfasts, welcome dinner, Thai cooking-class dinner, Phi Phi Island boat-tour lunch, and farewell dinner.",
     },
   ],
   itinerary: [
@@ -153,8 +153,9 @@ export const tyishaThailandData = {
       location: "Bangkok",
       heroImage: bangkokWelcomeNight,
       description:
-        "Welcome to Thailand! Upon arrival at Bangkok airport, your personal driver will be there waiting for you with a sign displaying your name. After your transfer, check in, freshen up, and get ready to ease into the excitement of the city. In the evening, enjoy a welcome orientation to meet the group, get familiar with the area, and go over the adventure ahead. Afterward, get ready for a girls’ night out and experience Bangkok’s buzzing streets, music, food, lights, and vibrant city energy together.",
-      highlights: "Girls’ night out in Bangkok",
+        "Welcome to Thailand! Upon arrival at Bangkok airport, your personal driver will be there waiting for you with a sign displaying your name. After your transfer, check in, freshen up, and get ready to ease into the excitement of the city. In the evening, enjoy a welcome orientation and included welcome dinner as you meet the group, get familiar with the area, and go over the adventure ahead. Afterward, get ready for a girls’ night out and experience Bangkok’s buzzing streets, music, lights, and vibrant city energy together.",
+      meals: "Welcome Dinner",
+      highlights: "Welcome dinner and girls’ night out in Bangkok",
       accommodation: { name: "Chillax Resort or similar" },
     },
     {
