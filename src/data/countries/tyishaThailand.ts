@@ -261,7 +261,7 @@ export const tyishaThailandData = {
         { text: "Daily breakfasts" },
         { text: "Dinner during the Thai cooking class" },
         { text: "Lunch during the Phi Phi Island boat tour" },
-        { text: "Farewell dinner on Day 8" },
+        { text: "Welcome dinner on Day 1 and farewell dinner on Day 8" },
       ],
     },
     {
@@ -331,7 +331,7 @@ export const tyishaThailandData = {
     {
       question: "Which meals are included?",
       answer:
-        "Daily breakfasts are included, along with dinner during the Thai cooking class, lunch during the Phi Phi Island boat tour, and the Day 8 farewell dinner.",
+        "Daily breakfasts are included, along with the Day 1 welcome dinner, dinner during the Thai cooking class, lunch during the Phi Phi Island boat tour, and the Day 8 farewell dinner.",
     },
     {
       question: "What transport and support are included?",
