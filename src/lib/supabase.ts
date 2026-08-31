@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
-export const PORTAL_TRIP_SLUG = "philippines-noah";
-export const PORTAL_TRIP_NAME = "Philippines with Noah";
+export const PORTAL_TRIP_SLUG = "tyisha-thailand";
+export const PORTAL_TRIP_NAME = "Min Best Of Thailand";
 export const PORTAL_CURRENCY = "USD";
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;

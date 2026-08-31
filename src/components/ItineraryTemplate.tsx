@@ -113,6 +113,7 @@ interface CountryData {
   priceOriginal?: string;
   priceNote?: string;
   ctaLabel?: string;
+  bookingDisabled?: boolean;
   soldOut?: boolean;
   startDate?: string;
   overviewGallery?: string[];
@@ -1424,7 +1425,20 @@ const StickyBookingCard = memo(({ data }: { data: CountryData }) => {
             )}
           </div>
 
-          {data.soldOut ? null : bookingUrl === "#" ? (
+          {data.soldOut ? null : data.bookingDisabled ? (
+            <>
+              <Button
+                size="default"
+                className="w-full cursor-not-allowed rounded-xl bg-primary text-base font-semibold text-primary-foreground disabled:opacity-60"
+                disabled
+              >
+                {data.ctaLabel || "RESERVE NOW"}
+              </Button>
+              <p className="mt-2 text-center text-xs text-muted-foreground">
+                Deposit is non-refundable.
+              </p>
+            </>
+          ) : bookingUrl === "#" ? (
             <Button
               size="default"
               className="h-auto w-full rounded-2xl border border-cyan-200/80 bg-gradient-to-r from-cyan-50 via-white to-teal-50 px-4 py-3 text-slate-700 shadow-[0_18px_40px_-24px_rgba(15,194,191,0.45)] cursor-not-allowed disabled:opacity-100"
@@ -1633,19 +1647,38 @@ export const ItineraryTemplate = memo(
                 onCanPlay={() => setMobileHeroVideoReady(true)}
               />
             )}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-              <div className="text-center text-white">
-                <h1 className="text-3xl font-bold mb-2">{data.title}</h1>
-                <div className="flex items-center justify-center gap-2 text-base">
-                  <MapPin className="w-4 h-4" />
-                  <span>
-                    {data.slug === "india-journey" ? "Feb 27th" : data.location} •{" "}
-                    {data.duration}
-                    {data.startDate ? ` - ${data.startDate}` : ""}
-                  </span>
+            {data.slug === "tyisha-thailand" ? (
+              <div className="absolute inset-x-0 top-0 z-10 bg-gradient-to-b from-black/70 via-black/30 to-transparent px-3 pb-16 pt-5 text-center text-white">
+                <h1 className="whitespace-nowrap font-playfair text-[clamp(1.5rem,7.5vw,2rem)] font-bold leading-none drop-shadow-md">
+                  {data.title}
+                </h1>
+                <div className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm font-semibold drop-shadow-md">
+                  <MapPin className="h-4 w-4" />
+                  <span>{data.location}</span>
+                  {data.startDate && (
+                    <>
+                      <span aria-hidden="true">•</span>
+                      <Calendar className="h-4 w-4" />
+                      <span>{data.startDate}</span>
+                    </>
+                  )}
                 </div>
               </div>
-            </div>
+            ) : (
+              <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 transform">
+                <div className="text-center text-white">
+                  <h1 className="mb-2 text-3xl font-bold">{data.title}</h1>
+                  <div className="flex items-center justify-center gap-2 text-base">
+                    <MapPin className="h-4 w-4" />
+                    <span>
+                      {data.slug === "india-journey" ? "Feb 27th" : data.location} •{" "}
+                      {data.duration}
+                      {data.startDate ? ` - ${data.startDate}` : ""}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Desktop: Grid layout */}
@@ -1869,6 +1902,23 @@ export const ItineraryTemplate = memo(
 
       if (data.soldOut) {
         return null;
+      }
+
+      if (data.bookingDisabled) {
+        return (
+          <div className="flex w-[56%] flex-shrink-0 flex-col items-center gap-1">
+            <Button
+              size="default"
+              className="h-9 w-full cursor-not-allowed rounded-full bg-primary px-3 text-[11px] font-semibold tracking-[0.08em] text-primary-foreground disabled:opacity-60"
+              disabled
+            >
+              {data.ctaLabel || "RESERVE NOW"}
+            </Button>
+            <p className="text-center text-[10px] leading-none text-muted-foreground">
+              Deposit is non-refundable.
+            </p>
+          </div>
+        );
       }
 
       if (bookingUrl === "#") {

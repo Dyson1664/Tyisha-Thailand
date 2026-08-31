@@ -67,14 +67,14 @@ const BOOKING_CONFIG: Record<
     singleRoomSupplementAmount: 785,
   },
   "tyisha-thailand": {
-    countryName: "Tyeisha Best Of Thailand",
+    countryName: "Min Best Of Thailand",
     productHandle: "thailand-deposit",
     variantId: "45892468113587",
     requiresPassport: false,
     shopifyDomain: "tbff.imaginebeyondtravel.com",
     depositAmount: 400,
-    singleRoomSupplementAmount: 700,
-    tripDates: "April 15th - 24th, 2027",
+    singleRoomSupplementAmount: 550,
+    tripDates: "April 25th - May 3rd, 2027",
   },
 };
 

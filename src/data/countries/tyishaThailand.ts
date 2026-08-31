@@ -2,14 +2,13 @@ import bangkokFloatingMarket from "@/assets/tyisha-thailand/bangkok-floating-mar
 import bangkokGrandPalace from "@/assets/tyisha-thailand/bangkok-grand-palace.webp";
 import bangkokWelcomeNight from "@/assets/tyisha-thailand/bangkok-welcome-night.webp";
 import phuketCoast from "@/assets/tyisha-thailand/phuket-coast.webp";
-import atvImage from "@/assets/tyisha-thailand/atv.jpg";
 import day6Image from "@/assets/tyisha-thailand/day6.webp";
 import phiPhiImage from "@/assets/tyisha-thailand/phi-phi.avif";
 import day8Image from "@/assets/tyisha-thailand/day-8.jpg";
-import massageThailandImage from "@/assets/tyisha-thailand/massage-thailand.jpg";
+import bigBuddhaImage from "@/assets/tyisha-thailand/big buddha.jpg";
 import day10Image from "@/assets/tyisha-thailand/day-10.jpg";
-import tyisha1Image from "@/assets/tyisha-thailand/tyisha1.jpg";
-import tyisha2Image from "@/assets/tyisha-thailand/tyisha-2.jpg";
+import min1Image from "@/assets/tyisha-thailand/min-1.jpg";
+import min2Image from "@/assets/tyisha-thailand/min2.jpg";
 import desktop6Image from "@/assets/tyisha-thailand/desktop-6.jpg";
 import bangkokVideo from "@/assets/tyisha-thailand/bangkok_video.mp4";
 import phuketVideo from "@/assets/tyisha-thailand/phuket-vid.mp4";
@@ -19,10 +18,8 @@ import chillaxGym from "@/assets/tyisha-thailand/hotels/766048977.jpg";
 import chillaxAtrium from "@/assets/tyisha-thailand/hotels/766048971.jpg";
 import chillaxRoom from "@/assets/tyisha-thailand/hotels/766048876.jpg";
 import chillaxTerrace from "@/assets/tyisha-thailand/hotels/766049027.jpg";
-import natureAerialPool from "@/assets/tyisha-thailand/hotels/nature-1.jpg";
-import natureRoom from "@/assets/tyisha-thailand/hotels/nature-2.jpg";
-import naturePool from "@/assets/tyisha-thailand/hotels/nature-3.jpg";
-import natureGym from "@/assets/tyisha-thailand/hotels/nature-4.jpg";
+import andakiraPool from "@/assets/tyisha-thailand/hotels/hotel-1.jpg";
+import andakiraRoom from "@/assets/tyisha-thailand/hotels/hotel-2.jpg";
 import phiPhiHotelPool from "@/assets/tyisha-thailand/hotels/phi phi-1.jpg";
 import phiPhiHotelRoom from "@/assets/tyisha-thailand/hotels/phi phi-2.jpg";
 import {
@@ -36,22 +33,25 @@ import {
 export const tyishaThailandData = {
   id: "tyisha-thailand",
   slug: "tyisha-thailand",
-  title: "Tyeisha Best Of Thailand",
-  subtitle: "10 Days | Bangkok → Phuket",
+  title: "Min Best Of Thailand",
+  subtitle: "9 Days | Bangkok → Phuket",
   location: "Thailand",
-  duration: "10 Days",
-  startDate: "April 15th - 24th, 2027",
-  price: "$2,549",
+  duration: "9 Days",
+  startDate: "April 25th - May 3rd, 2027",
+  price: "$2,399",
+  priceOriginal: "$2,499",
+  priceNote: "$100 early-bird discount for the first 6 bookings.",
   ctaLabel: "$400 Deposit",
-  heroImage: tyisha1Image,
+  bookingDisabled: true,
+  heroImage: min1Image,
   desktopHeroPosterImage: thailandHero,
   desktopTopMiddleImage: day6Image,
   desktopTopMiddleObjectPosition: "center center",
-  desktopTopRightImage: tyisha1Image,
+  desktopTopRightImage: day8Image,
   desktopTopRightObjectPosition: "center center",
   desktopBottomLeftImage: phiPhiImage,
-  desktopBottomMiddleImage: tyisha2Image,
-  desktopBottomMiddleObjectPosition: "center center",
+  desktopBottomMiddleImage: min2Image,
+  desktopBottomMiddleObjectPosition: "center 60%",
   desktopBottomRightImage: desktop6Image,
   desktopBottomRightObjectPosition: "center center",
   overviewGallery: [bangkokWelcomeNight, phuketCoast, thailandHero, bangkokWelcomeNight],
@@ -63,9 +63,9 @@ export const tyishaThailandData = {
     { emoji: "🏖️", label: "Beach" },
   ],
   aboutDescription: [
-    "Join Tyeisha for 10 unforgettable days exploring Thailand’s buzzing capital city and beautiful island coast. From Bangkok’s temples, floating markets, nightlife, and street food to Phuket’s beaches, elephants, Thai cooking, island hopping, spa time, and tropical views, this trip is the perfect mix of culture, adventure, relaxation, and fun.",
-    "You’ll travel with a group, have support along the way, and still enjoy plenty of free time to explore, shop, eat, relax, and make the trip your own.",
-    "Stay in 4-star hotels and enjoy guided group travel balanced with free time and optional adventures.",
+    "Are you looking to meet other women, make new friends, step outside your comfort zone, and experience something new? Then I’m so excited to have you join me, Min, on a bonding girls’ trip as we adventure through Bangkok, Phuket, and the Phi Phi Islands together for 9 unforgettable days, in collaboration with @imaginebeyondtravel ✈️",
+    "The itinerary has been curated to offer the perfect balance of adventure and activity alongside plenty of downtime, giving us the chance to really get to know one another, have fun, and immerse ourselves in the culture of Thailand.",
+    "Stay in handpicked 4- and 3-star hotel accommodations and enjoy guided group travel with plenty of time to relax, connect, and make the experience your own.",
   ],
   aboutImages: [bangkokWelcomeNight, phuketCoast],
   highlights: [
@@ -79,7 +79,7 @@ export const tyishaThailandData = {
     {
       title: "Phuket & Phi Phi",
       description:
-        "Tropical beaches, island views, Thai cooking, spa time, and optional coastal adventures.",
+        "Tropical beaches, island views, Thai cooking, relaxation, and coastal adventures.",
       image: phuketCoast,
       video: phuketVideo,
     },
@@ -92,10 +92,10 @@ export const tyishaThailandData = {
       images: [chillaxPool, chillaxRoom, chillaxAtrium, chillaxTerrace, chillaxGym],
     },
     {
-      title: "The Nature Phuket or similar",
+      title: "Andakira Hotel – SHA Extra Plus or similar",
       description:
-        "A peaceful 5-star Phuket resort with modern rooms and inviting tropical pools.",
-      images: [naturePool, natureRoom, natureAerialPool, natureGym],
+        "A comfortable Phuket stay with modern rooms, a welcoming pool, and easy access to Patong.",
+      images: [andakiraRoom, andakiraPool],
     },
     {
       title: "Coco Bella Resort or similar",
@@ -107,14 +107,14 @@ export const tyishaThailandData = {
   whatsIncludedHighlights: [
     {
       icon: Home,
-      title: "9 NIGHTS<br />ACCOMMODATION",
-      description: "4-star hotels throughout the 10-day Thailand escape.",
+      title: "8 NIGHTS<br />ACCOMMODATION",
+      description: "Handpicked 4- and 3-star hotel accommodations throughout the 9-day Thailand escape.",
     },
     {
       icon: Sparkles,
       title: "INCLUDED<br />ACTIVITIES",
       description:
-        "Grand Palace, floating market, ATV, zipline, Thai cooking, Elephant Jungle Sanctuary, Phi Phi Island boat tour, spa day, and more.",
+        "Grand Palace, floating market, Thai cooking, Elephant Jungle Sanctuary, private Phi Phi island-hopping, and more.",
       link: {
         text: "View all included activities",
         url: "#whats-included",
@@ -142,12 +142,12 @@ export const tyishaThailandData = {
   itinerary: [
     {
       day: 1,
-      title: "Arrival, Welcome Orientation & Nightlife",
+      title: "Arrival, Welcome Orientation & Girls’ Night Out",
       location: "Bangkok",
       heroImage: bangkokWelcomeNight,
       description:
-        "Welcome to Thailand! Upon arrival at Bangkok airport, your personal driver will be waiting to greet you with a sign for easy pickup. The airport has Wi-Fi available, so you’ll be able to message your driver if needed and connect smoothly before heading to your hotel. After your transfer, check in, freshen up, and get ready to ease into the excitement of the city. In the evening, enjoy a welcome orientation to meet the group, get familiar with the area, and go over the adventure ahead. Afterward, step out and experience Bangkok’s famous nightlife, buzzing streets, music, food, lights, and vibrant city energy.",
-      highlights: "Bangkok nightlife experience",
+        "Welcome to Thailand! Upon arrival at Bangkok airport, your personal driver will be there waiting for you with a sign displaying your name. After your transfer, check in, freshen up, and get ready to ease into the excitement of the city. In the evening, enjoy a welcome orientation to meet the group, get familiar with the area, and go over the adventure ahead. Afterward, get ready for a girls’ night out and experience Bangkok’s buzzing streets, music, food, lights, and vibrant city energy together.",
+      highlights: "Girls’ night out in Bangkok",
       accommodation: { name: "Chillax Resort or similar" },
     },
     {
@@ -174,84 +174,73 @@ export const tyishaThailandData = {
     },
     {
       day: 4,
-      title: "Bangkok to Phuket | Travel Day & Island Arrival",
-      location: "Phuket",
+      title: "Bangkok → Phuket | Island Arrival & Thai Cooking Class",
+      location: "Bangkok to Phuket",
       heroImage: phuketCoast,
       description:
-        "After breakfast, check out and fly to Phuket. Upon arrival, check in at your hotel and ease into island mode. Spend the rest of the day relaxing, exploring the beach, browsing local shops, or discovering the Patong area at your own pace. This is a slower travel day, giving you time to settle in, unwind, and enjoy your first taste of Phuket.",
-      meals: "Breakfast",
-      accommodation: { name: "The Nature Phuket or similar" },
+        "After breakfast, it’s time to trade Bangkok’s city lights for Phuket’s tropical beaches. Check out and head to the airport for your included domestic flight to Phuket. Upon arrival, transfer to the hotel, check in, and enjoy some free time to settle into island life. Explore Patong, hit the beach, browse the shops, grab a drink, or relax by the pool. In the evening, come together for a fun Thai cooking class. Learn how to prepare authentic dishes, discover local ingredients and flavors, and then sit down to enjoy the meal you helped create.",
+      meals: "Breakfast, Dinner",
+      highlights: "Included flight to Phuket and Thai cooking class",
+      accommodation: { name: "AIMs Hotel Phuket or similar" },
     },
     {
       day: 5,
-      title: "ATV Adventure, Zipline, Big Buddha & Thai Cooking Class",
-      location: "Phuket",
-      heroImage: atvImage,
-      description:
-        "Get ready for an action-packed morning in Phuket. Begin the day with an exciting ATV adventure, riding through scenic jungle trails and rugged terrain. Continue with a thrilling zipline experience before visiting the iconic Big Buddha viewpoint, where you can enjoy panoramic views across the island. Around midday, return to the hotel and enjoy free time for lunch, relaxation, or a refreshing swim. Later in the afternoon, come together for a fun and interactive Thai cooking class. Learn about traditional ingredients, local flavors, and authentic cooking techniques as you prepare a selection of delicious Thai dishes to enjoy together.",
-      meals: "Breakfast, Dinner",
-      highlights: "ATV adventure, zipline, Big Buddha visit, and Thai cooking class",
-      accommodation: { name: "The Nature Phuket or similar" },
-    },
-    {
-      day: 6,
-      title: "Slow Morning & Elephant Jungle Sanctuary",
+      title: "Phuket | Slow Morning & Elephant Jungle Sanctuary",
       location: "Phuket",
       heroImage: day6Image,
       description:
-        "Enjoy a relaxed morning with breakfast, extra sleep, and time to chill. No rush today. In the afternoon, visit an Elephant Jungle Sanctuary experience in Phuket. Spend meaningful time learning about elephants, their care, and their stories in a jungle setting. This is a beautiful and memorable way to connect with Thailand’s wildlife. After returning to the hotel, enjoy a free evening in Phuket. Relax, go for dinner, explore the area, or enjoy a fun night out.",
+        "No early rush today. Enjoy breakfast, sleep in a little, grab a coffee, or relax by the pool before heading out for one of the most memorable experiences of the trip. Visit an Elephant Jungle Sanctuary, where you’ll spend time learning about the elephants, their care, personalities, and stories in a beautiful jungle setting and feeding them. The evening is free to explore Phuket, walk along the beach, go shopping, head out for drinks, or simply relax.",
       meals: "Breakfast",
-      highlights: "Elephant Jungle Sanctuary experience",
-      accommodation: { name: "The Nature Phuket or similar" },
+      highlights: "Elephant Jungle Sanctuary visit and elephant feeding",
+      accommodation: { name: "AIMs Hotel Phuket or similar" },
+    },
+    {
+      day: 6,
+      title: "Phuket → Phi Phi | Private Speedboat & Island-Hopping Adventure",
+      location: "Phuket to Phi Phi Islands",
+      heroImage: phiPhiImage,
+      description:
+        "Today is one of the biggest highlights of the trip. After breakfast, check out of your Phuket hotel and board your own private speedboat for an unforgettable journey through the Phi Phi Islands. Rather than simply transferring by ferry, today becomes a full private island-hopping adventure. Cruise through turquoise waters surrounded by dramatic limestone cliffs, white-sand beaches and hidden bays. Spend the day swimming, snorkeling and exploring some of the Phi Phi Islands’ most spectacular locations, with stops that may include Maya Bay, Viking Cave, snorkeling areas and scenic beaches depending on weather, tides and local regulations. Lunch is included during the boat experience. At the end of the adventure, the speedboat will drop the group directly at Phi Phi Island, where you’ll check into your hotel for the night. In the evening, head down to the beach to watch one of Phi Phi’s famous Thai fire shows and enjoy the island atmosphere.",
+      meals: "Breakfast, Lunch",
+      highlights:
+        "Private speedboat, Phi Phi island-hopping, swimming, snorkeling, Maya Bay, Viking Cave, and Thai fire show",
+      accommodation: { name: "Coco Bella Resort or similar, Phi Phi Island" },
     },
     {
       day: 7,
-      title: "Phi Phi Island Boat Tour Adventure",
-      location: "Phi Phi Islands",
-      heroImage: phiPhiImage,
-      description:
-        "After breakfast, get ready for a full day on the water. Today’s boat tour brings the tropical dream to life with stops and sightseeing around some of Thailand’s most famous island scenery. Explore the beauty of the Phi Phi Islands, dramatic limestone cliffs, turquoise waters, crystal-clear beaches, and unforgettable island views. In the evening, head out for dinner and a possible fire dancing show on the beach.",
-      meals: "Breakfast, Lunch",
-      highlights:
-        "Phi Phi Island boat tour, snorkeling stops, Maya Bay, and Viking Cave sightseeing",
-      accommodation: { name: "Coco Bella or similar" },
-    },
-    {
-      day: 8,
-      title: "Phi Phi Islands to Phuket | Chill Morning, Viewpoints & Ferry Back",
+      title: "Phi Phi Viewpoint → Phuket",
       location: "Phi Phi Islands to Phuket",
       heroImage: day8Image,
       description:
-        "Wake up on Phi Phi Island and enjoy a relaxed morning with beautiful tropical views. After breakfast, enjoy free time to visit a viewpoint or explore the island at your own pace. Around midday, take the ferry back to Phuket, check back into the hotel, and enjoy a chilled afternoon by the pool, at the beach, or exploring nearby shops.",
+        "Wake up in paradise and enjoy breakfast before heading to the famous Phi Phi Viewpoint. Make your way up to one of the island’s best photo spots and take in incredible panoramic views across Phi Phi’s turquoise bays, beaches and dramatic limestone scenery. Afterward, return to the hotel, collect your bags and say goodbye to Phi Phi. Board the ferry back to Phuket, arriving during the afternoon. From the ferry terminal, you’ll be transferred to your hotel, where the remainder of the day is yours to relax and enjoy Phuket at your own pace.",
       meals: "Breakfast",
-      highlights: "Phi Phi viewpoint hike",
-      accommodation: { name: "The Nature Phuket or similar" },
+      highlights: "Phi Phi Viewpoint and ferry back to Phuket",
+      accommodation: { name: "Andakira Hotel – SHA Extra Plus or similar" },
+    },
+    {
+      day: 8,
+      title: "Phuket | Full Free Day & Farewell Night",
+      location: "Phuket",
+      heroImage: bigBuddhaImage,
+      description:
+        "Today is completely yours. Sleep in, enjoy a relaxed breakfast and spend your final full day in Thailand exactly how you want. Head to the beach, shop for souvenirs, explore Phuket, spend the afternoon by the pool or treat yourself to a Thai massage or spa experience. There are no scheduled daytime activities, giving you plenty of time to relax and enjoy Phuket at your own pace. In the evening, come together one final time for an included farewell dinner and celebrate an incredible Thailand adventure.",
+      meals: "Breakfast, Farewell Dinner",
+      highlights: "Full free day and included farewell dinner",
+      accommodation: { name: "Andakira Hotel – SHA Extra Plus or similar" },
     },
     {
       day: 9,
-      title: "Spa Day, Massages & Farewell Night",
-      location: "Phuket",
-      heroImage: massageThailandImage,
-      description:
-        "After breakfast, enjoy a slower, relaxing day in Phuket. Today is all about rest, recovery, and treating yourself. Enjoy a spa day with massages, nail treatments, wellness time, beach relaxation, shopping, cafés, or poolside downtime. This is the perfect day to recharge after the island tour and enjoy a softer side of Phuket. In the evening, enjoy a farewell dinner and final night out with the group to celebrate the trip.",
-      meals: "Breakfast, Farewell Dinner",
-      highlights:
-        "Spa, massage, and beauty treatment day, farewell dinner, and final night out",
-      accommodation: { name: "The Nature Phuket or similar" },
-    },
-    {
-      day: 10,
-      title: "Free Morning & Departures",
+      title: "Phuket | Check-Out & Departure",
       location: "Phuket",
       heroImage: day10Image,
       description:
-        "Enjoy your final breakfast in Thailand, then check out of the hotel. Depending on your flight time, you may have time for last-minute shopping, beach walks, coffee, photos, or one final massage before departing. Say goodbye to Phuket and leave with unforgettable memories from Bangkok’s temples and markets to Phuket’s beaches, islands, jungle adventures, elephants, Thai cooking, nightlife, and new travel friends.",
+        "Enjoy your final breakfast in Thailand before checking out of the hotel. Depending on your flight time, enjoy a final walk, some last-minute shopping or a little more time soaking up Phuket before making your own way to Phuket International Airport. Say goodbye to Thailand with incredible memories of Bangkok, Phuket and the Phi Phi Islands.",
       meals: "Breakfast",
-      accommodation: { name: "Check out" },
+      highlights: "Hotel check-out and departure",
     },
   ],
   summary: {
-    duration: "10 Days",
+    duration: "9 Days",
     activities: "Culture, Food, Beaches & Nightlife",
     areas: "Bangkok, Phuket & Phi Phi Islands",
     type: "Guided Group Travel",
@@ -260,11 +249,11 @@ export const tyishaThailandData = {
     {
       title: "Meals & Accommodation",
       items: [
-        { text: "9 nights in 4-star hotels" },
+        { text: "8 nights in handpicked 4- and 3-star hotel accommodations" },
         { text: "Daily breakfasts" },
         { text: "Dinner during the Thai cooking class" },
         { text: "Lunch during the Phi Phi Island boat tour" },
-        { text: "Farewell dinner on Day 9" },
+        { text: "Farewell dinner on Day 8" },
       ],
     },
     {
@@ -279,52 +268,62 @@ export const tyishaThailandData = {
     {
       title: "Included Experiences",
       items: [
-        { text: "Bangkok nightlife experience" },
+        { text: "Girls’ night out in Bangkok" },
         { text: "Grand Palace visit" },
         { text: "Floating market experience" },
         { text: "Thai cooking class" },
-        { text: "ATV adventure" },
-        { text: "Zipline experience" },
-        { text: "Big Buddha visit" },
         { text: "Elephant Jungle Sanctuary experience" },
-        { text: "Phi Phi Island boat tour" },
-        { text: "Spa, massage, and beauty treatment day" },
+        { text: "Private Phi Phi Island speedboat tour" },
+        { text: "Phi Phi Viewpoint" },
         { text: "Farewell dinner and final night out" },
       ],
     },
   ],
   paymentPlanDescription:
-    "Secure your place with a $400 non-refundable deposit. The remaining $2,149 balance is split into two equal payments.",
+    "Secure your place with a $400 non-refundable deposit, then split the remaining balance across three payments. The first 6 bookings receive a $100 early-bird discount.",
   paymentPlans: [
     {
-      title: "Tyeisha's Thailand Trip",
-      price: "$2,549",
+      title: "Early Bird – First 6 Bookings",
+      price: "$2,399",
+      featured: true,
       payments: [
         { label: "Deposit at booking", amount: "$400" },
-        { label: "First balance payment due November 5, 2026", amount: "$1,074.50" },
-        { label: "Final balance payment due February 5, 2027", amount: "$1,074.50" },
+        { label: "First balance payment due November 5, 2026", amount: "$650" },
+        { label: "Second balance payment due January 15, 2027", amount: "$650" },
+        { label: "Final balance payment due February 15, 2027", amount: "$699" },
       ],
-      note: "Optional single room: add the $700 supplement to the first balance payment, making that payment $1,774.50 and the total trip price $3,249.",
+      note: "Includes the $100 early-bird discount. Optional single room: add the $550 supplement to the first balance payment, making that payment $1,200 and the total trip price $2,949.",
+    },
+    {
+      title: "Min's Thailand Trip",
+      price: "$2,499",
+      payments: [
+        { label: "Deposit at booking", amount: "$400" },
+        { label: "First balance payment due November 5, 2026", amount: "$700" },
+        { label: "Second balance payment due January 15, 2027", amount: "$700" },
+        { label: "Final balance payment due February 15, 2027", amount: "$699" },
+      ],
+      note: "Optional single room: add the $550 supplement to the first balance payment, making that payment $1,250 and the total trip price $3,049.",
     },
   ],
   faqs: [
     {
       question: "When does the tour start?",
-      answer: "The tour runs from April 15th through April 24th, 2027.",
+      answer: "The tour runs from April 25th through May 3rd, 2027.",
     },
     {
       question: "How long is the trip and what is the route?",
       answer:
-        "This is a 10-day guided group trip through Bangkok, Phuket, and the Phi Phi Islands, finishing back in Phuket.",
+        "This is a 9-day guided group trip through Bangkok, Phuket, and the Phi Phi Islands, finishing back in Phuket.",
     },
     {
       question: "What accommodation is included?",
-      answer: "The trip includes 9 nights in 4-star hotels.",
+      answer: "The trip includes 8 nights in handpicked 4- and 3-star hotel accommodations.",
     },
     {
       question: "Which meals are included?",
       answer:
-        "Daily breakfasts are included, along with dinner during the Thai cooking class, lunch during the Phi Phi Island boat tour, and the Day 9 farewell dinner.",
+        "Daily breakfasts are included, along with dinner during the Thai cooking class, lunch during the Phi Phi Island boat tour, and the Day 8 farewell dinner.",
     },
     {
       question: "What transport and support are included?",
@@ -334,7 +333,7 @@ export const tyishaThailandData = {
     {
       question: "What activities are included?",
       answer:
-        "Included experiences cover Bangkok nightlife, the Grand Palace, a floating market, ATV and zipline adventures, Big Buddha, a Thai cooking class, the Elephant Jungle Sanctuary, a Phi Phi Island boat tour, a spa and beauty treatment day, and the farewell dinner and final night out.",
+        "Included experiences cover a girls’ night out in Bangkok, the Grand Palace, a floating market, a Thai cooking class, the Elephant Jungle Sanctuary, a private Phi Phi Island speedboat tour, the Phi Phi Viewpoint, and the farewell dinner and final night out.",
     },
     {
       question: "Is there free time during the trip?",

@@ -89,7 +89,7 @@ const FAQs = React.memo(() => {
             Frequently Asked Questions 🤔
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Everything you need to know about the Tyeisha Best Of Thailand trip.
+            Everything you need to know about the Min Best Of Thailand trip.
           </p>
         </div>
       </section>

@@ -165,7 +165,7 @@ export default function GuestLogin({ mode = "guest" }: GuestLoginProps) {
 
           {!isSupabaseConfigured ? (
             <p className="mt-4 text-xs text-muted-foreground">
-              Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to enable login.
+              Guest login is temporarily unavailable. Please try again later.
             </p>
           ) : null}
         </section>

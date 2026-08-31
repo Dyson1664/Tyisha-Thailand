@@ -5,10 +5,6 @@ import { tyishaThailandData } from "@/data/countries/tyishaThailand";
 import phuketVideo from "@/assets/tyisha-thailand/phuket-vid.mp4";
 
 const TyishaThailandDesktopHero = () => {
-  const bookingUrl = tyishaThailandData.slug
-    ? `/booking/${tyishaThailandData.slug}`
-    : "#";
-
   return (
     <section className="hidden w-full px-5 py-5 md:block">
       <div className="mx-auto w-full max-w-[1420px] md:w-[94%] md:px-6 lg:w-[92%] lg:px-12 xl:w-[90%]">
@@ -71,14 +67,13 @@ const TyishaThailandDesktopHero = () => {
                 {tyishaThailandData.priceNote}
               </p>
             )}
-            <a href={bookingUrl} className="inline-flex">
-              <button
-                type="button"
-                className="mt-2 rounded-full bg-[#0fc2bf] px-5 py-2 text-base font-bold text-white transition hover:brightness-95"
-              >
-                {tyishaThailandData.ctaLabel}
-              </button>
-            </a>
+            <button
+              type="button"
+              className="mt-2 cursor-not-allowed rounded-full bg-[#0fc2bf] px-5 py-2 text-base font-bold text-white opacity-60"
+              disabled
+            >
+              {tyishaThailandData.ctaLabel}
+            </button>
             <p className="mt-1 text-xs font-semibold text-slate-600">
               Deposit is non-refundable.
             </p>
@@ -106,7 +101,7 @@ const TyishaThailandDesktopHero = () => {
           />
           <img
             src={tyishaThailandData.desktopBottomMiddleImage}
-            alt="Tyisha relaxing by a pool with a coconut"
+            alt="Min enjoying a city sunset"
             className="col-span-3 h-full w-full object-cover"
             style={{ objectPosition: tyishaThailandData.desktopBottomMiddleObjectPosition }}
           />
@@ -125,7 +120,7 @@ const TyishaThailandDesktopHero = () => {
           />
           <img
             src={tyishaThailandData.desktopTopRightImage}
-            alt="Tyisha watching the sunset from a beach"
+            alt="Phi Phi Viewpoint on Day 7"
             className="col-span-4 h-full w-full object-cover"
             style={{ objectPosition: tyishaThailandData.desktopTopRightObjectPosition }}
           />
