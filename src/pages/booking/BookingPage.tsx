@@ -265,6 +265,7 @@ export default function BookingPage2() {
     mode: "onChange",
   });
 
+  const guestCount = Number(form.watch("guestCount")) || 1;
   const { isValid } = form.formState;
   if (!config) {
     return (
@@ -457,6 +458,28 @@ export default function BookingPage2() {
                     </FormItem>
                   )}
                 />
+
+                {guestCount > 1 ? (
+                  <div
+                    role="status"
+                    aria-live="polite"
+                    className="animate-in fade-in slide-in-from-top-2 rounded-lg border border-primary/25 bg-primary/5 px-4 py-3 text-sm text-foreground duration-200"
+                  >
+                    <p className="font-semibold">Additional guest information</p>
+                    <p className="mt-1 text-muted-foreground">
+                      After payment, please email {guestCount === 2
+                        ? "the second guest’s information"
+                        : "the second and any additional guests’ information"} to{" "}
+                      <a
+                        href="mailto:bookings@imaginebeyondtravel.com"
+                        className="font-semibold text-primary underline underline-offset-2"
+                      >
+                        bookings@imaginebeyondtravel.com
+                      </a>
+                      .
+                    </p>
+                  </div>
+                ) : null}
 
                 {config.singleRoomSupplementAmount ? (
                   <FormField
